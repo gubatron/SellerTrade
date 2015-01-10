@@ -35,7 +35,9 @@ import com.frostwire.jlibtorrent.alerts.ExternalIpAlert;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
 public class DHTServiceImpl implements DHTService {
@@ -43,10 +45,14 @@ public class DHTServiceImpl implements DHTService {
     private final String HELLO_SELLER_TRADE_SHA1 = "de97662e7ba270abbf67485f41bdfb8995f7960b";
     private final Session s;
     private final DHT dht;
+    private final boolean useLanMappings;
+    private final Map<Integer,String> LAN_MAPPINGS;
 
-    public DHTServiceImpl() {
+    public DHTServiceImpl(boolean useLanMappings) {
         s = new Session();
         dht = new DHT(s);
+        this.useLanMappings = useLanMappings;
+        LAN_MAPPINGS = (useLanMappings) ? getLanMappings() : new HashMap<>();
 
         s.addListener(new AlertListener() {
 
@@ -89,11 +95,15 @@ public class DHTServiceImpl implements DHTService {
 
     public List<DHTNode> getNodesByHash(String sha1string) {
         ArrayList<TcpEndpoint> peers = dht.getPeers(sha1string, 30, TimeUnit.SECONDS);
-
         ArrayList<DHTNode> nodes = new ArrayList<>(peers.size());
 
         for (TcpEndpoint p : peers) {
-            nodes.add(new DHTNode(p));
+            if (useLanMappings) {
+                //use for development purposes only when testing with local nodes and unfriendly routers.
+                nodes.add(new DHTNode(LAN_MAPPINGS.get(p.getPort()),p.getPort()));
+            } else {
+                nodes.add(new DHTNode(p.getAddress(),p.getPort()));
+            }
         }
 
         return nodes;
@@ -131,5 +141,17 @@ public class DHTServiceImpl implements DHTService {
 
     private static String sha1hex(String str) {
         return toHex(sha1(str));
+    }
+
+    private static Map<Integer,String> getLanMappings() {
+        Map<Integer,String> LAN_MAPPINGS = new HashMap<Integer,String>();
+        // 2 nodes on machine A.
+        LAN_MAPPINGS.put(8920,"172.16.2.129");
+        LAN_MAPPINGS.put(8921,"172.16.2.129");
+
+        // 2 nodes on machine B.
+        LAN_MAPPINGS.put(8990,"172.16.2.118");
+        LAN_MAPPINGS.put(8991,"172.16.2.118");
+        return LAN_MAPPINGS;
     }
 }

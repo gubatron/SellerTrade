@@ -40,6 +40,7 @@ public class ConfigurationKeys {
     public static final String ST_API_SERVERS_IPS = "st.api_servers_ips";
     public static final String ST_LIB_PATH = "st.lib_path";
     public static final String ST_IS_LOBBY_SERVER = "st.is_lobby_server";
+    public static final String ST_USE_LAN_MAPPINGS= "st.use_lan_mappings";
 
     public static final String ST_EMAIL_USERNAME = "st.emails.username";
     public static final String ST_EMAIL_PASSWORD = "st.emails.password";
