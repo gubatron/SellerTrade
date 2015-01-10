@@ -17,6 +17,8 @@ public class HelloWorldServlet extends STAbstractServlet {
 
     @Override
     protected void handleUncached(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+        response.setContentType("text/html");
+        response.setStatus(HttpServletResponse.SC_OK);
         response.getWriter().println("Hello World");
     }
 }
