@@ -130,6 +130,8 @@ public final class DHT {
                     if (target.equals(replyAlert.getInfoHash())) {
                         result[0] = replyAlert.getPeers();
                         signal.countDown();
+                    } else {
+                        System.out.println("DHT.getPeers().alert() [non hash match]-> " + replyAlert);
                     }
                 }
             }

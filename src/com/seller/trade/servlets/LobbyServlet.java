@@ -33,9 +33,14 @@ public class LobbyServlet extends STAbstractServlet {
         response.setStatus(HttpServletResponse.SC_OK);
 
         final List<DHTNode> nodes = dhtService.getNodes();
-        if (nodes != null && nodes.isEmpty()) {
-            Collections.shuffle(nodes);
-            output = nodes.get(0).getIPAddress();
+        if (nodes != null && !nodes.isEmpty()) {
+            //Collections.shuffle(nodes);
+            StringBuffer buffer = new StringBuffer();
+            //nodes.stream().forEach((d) -> { buffer.append(d.getIPAddress() + "\n");});
+            for (DHTNode node : nodes) {
+                buffer.append(node.getIPAddress() + "<br>\n");
+            }
+            output = buffer.toString();//nodes.get(0).getIPAddress();
         }  else {
             output = "-1.-1.-1.-1";
         }
