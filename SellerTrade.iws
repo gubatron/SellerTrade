@@ -2,12 +2,365 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c392de77-a290-44ba-80b8-09453abccaab" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/seller/trade/core/Configuration.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/seller/trade/core/ConfigurationKeys.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/seller/trade/core/Constants.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/seller/trade/servlets/STAbstractServlet.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SellerTrade.iml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/seller/trade/services/ServiceBroker.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libjlibtorrent.dylib" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libjlibtorrent.so" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/.gitignore" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/alerts/AbstractAlert.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/alerts/AddTorrentAlert.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/Address.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/alerts/Alert.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/AlertListener.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/alerts/AlertType.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/AnnounceEntry.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/alerts/AnonymousModeAlert.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/Bitfield.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/alerts/BlockDownloadingAlert.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/alerts/BlockFinishedAlert.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/alerts/BlockTimeoutAlert.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/alerts/CacheFlushedAlert.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/CachedPieceInfo.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/DHT.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/DHTLookup.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/DHTRoutingBucket.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/DHTSettings.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/alerts/DhtAnnounceAlert.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/alerts/DhtBootstrapAlert.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/alerts/DhtErrorAlert.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/alerts/DhtGetPeersAlert.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/alerts/DhtGetPeersReplyAlert.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/demo/DhtImmutable.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/alerts/DhtImmutableItemAlert.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/demo/DhtItemTest.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/alerts/DhtMutableItemAlert.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/demo/DhtNs.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/demo/DhtPut.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/alerts/DhtPutAlert.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/alerts/DhtReplyAlert.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/demo/DhtRouter.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/demo/DhtTest.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/demo/DownloadTorrent.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/Downloader.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/Ed25519.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/Entry.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/demo/EntryDump.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/demo/EntryTest.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/demo/EntryTest2.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/ErrorCategory.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/ErrorCode.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/ErrorCondition.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/demo/EscapeTest.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/alerts/ExternalIpAlert.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/alerts/FastresumeRejectedAlert.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/FeedHandle.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/FeedItem.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/alerts/FileCompletedAlert.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/FileEntry.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/alerts/FileErrorAlert.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/alerts/FileRenameFailedAlert.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/alerts/FileRenamedAlert.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/FileStorage.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/Fingerprint.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/alerts/GenericAlert.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/demo/GetMagnet.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/demo/GetMagnet2.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/alerts/HashFailedAlert.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/alerts/I2pAlert.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/alerts/IncomingConnectionAlert.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/alerts/InvalidRequestAlert.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/LICENSE.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/demo/LazyRead.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/LibTorrent.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/alerts/ListenFailedAlert.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/alerts/ListenSucceededAlert.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/Logger.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/alerts/LsdPeerAlert.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/alerts/MetadataFailedAlert.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/alerts/MetadataReceivedAlert.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/PTime.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/Pair.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/demo/PartialDownload.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/demo/PartialDownload2.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/alerts/PeerAlert.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/alerts/PeerBanAlert.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/alerts/PeerBlockedAlert.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/alerts/PeerConnectAlert.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/alerts/PeerDisconnectedAlert.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/alerts/PeerErrorAlert.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/PeerInfo.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/PeerRequest.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/alerts/PeerSnubbedAlert.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/alerts/PeerUnsnubbedAlert.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/alerts/PerformanceAlert.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/alerts/PieceFinishedAlert.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/Policy.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/alerts/PortmapAlert.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/alerts/PortmapErrorAlert.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/alerts/PortmapLogAlert.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/alerts/PortmapType.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/Priority.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/ProxySettings.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/README.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/alerts/ReadPieceAlert.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/demo/ReadTorrent.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/alerts/RequestDroppedAlert.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/alerts/RssAlert.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/alerts/RssItemAlert.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/alerts/SaveResumeDataAlert.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/alerts/SaveResumeDataFailedAlert.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/alerts/ScrapeFailedAlert.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/alerts/ScrapeReplyAlert.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/Session.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/SessionProxy.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/SessionSettings.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/SessionStatus.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/demo/SessionTest.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/Sha1Hash.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/SparseArray.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/alerts/StateChangedAlert.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/alerts/StateUpdateAlert.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/alerts/StatsAlert.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/StorageMode.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/alerts/StorageMovedAlert.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/alerts/StorageMovedFailedAlert.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/TcpEndpoint.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/TimeDuration.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/alerts/TorrentAddedAlert.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/alerts/TorrentAlert.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/TorrentAlertAdapter.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/alerts/TorrentCheckedAlert.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/alerts/TorrentDeleteFailedAlert.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/alerts/TorrentDeletedAlert.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/alerts/TorrentErrorAlert.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/alerts/TorrentFinishedAlert.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/TorrentHandle.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/TorrentInfo.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/alerts/TorrentNeedCertAlert.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/alerts/TorrentPausedAlert.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/alerts/TorrentPrioritizeAlert.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/alerts/TorrentRemovedAlert.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/alerts/TorrentResumedAlert.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/TorrentStatus.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/alerts/TorrentUpdateAlert.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/alerts/TrackerAlert.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/alerts/TrackerAnnounceAlert.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/alerts/TrackerErrorAlert.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/alerts/TrackerReplyAlert.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/alerts/TrackerWarningAlert.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/alerts/TrackeridAlert.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/UTPStatus.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/UdpEndpoint.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/alerts/UdpErrorAlert.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/alerts/UnwantedBlockAlert.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/alerts/UrlSeedAlert.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/Utils.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/Vectors.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/WebSeedEntry.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/swig/add_torrent_alert.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/swig/add_torrent_params.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/swig/address.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/swig/address_v4.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/swig/address_v6.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/swig/alert.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/swig/alert_ptr_deque.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/swig/alert_types.hpp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/swig/announce_entry.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/swig/announce_entry_vector.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/swig/anonymous_mode_alert.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/swig/bandwidth_socket.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/swig/bdecode_errors.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/swig/bitfield.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/swig/block_downloading_alert.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/swig/block_finished_alert.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/swig/block_info.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/swig/block_timeout_alert.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/swig/bool_vector.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/swig/boost.i" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/build/build.gradle" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/build/build_android.sh" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/build/build_linux.sh" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/build/build_macosx.sh" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/build/build_windows.bat" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/swig/cache_flushed_alert.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/swig/cache_status.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/swig/cached_piece_info.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/swig/cached_piece_info_vector.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/swig/char_const_ptr_int_pair.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/swig/char_vector.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/swig/create_torrent.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/swig/dht_announce_alert.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/swig/dht_bootstrap_alert.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/swig/dht_error_alert.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/swig/dht_get_peers_alert.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/swig/dht_get_peers_reply_alert.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/swig/dht_immutable_item_alert.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/swig/dht_item.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/swig/dht_lookup.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/swig/dht_lookup_vector.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/swig/dht_mutable_item_alert.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/swig/dht_put_alert.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/swig/dht_reply_alert.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/swig/dht_routing_bucket.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/swig/dht_routing_bucket_vector.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/swig/dht_settings.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/swig/ed25519.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/swig/entry.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/swig/entry_list.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/swig/entry_vector.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/swig/errc_t.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/swig/error_category.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/swig/error_code.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/swig/error_condition.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/swig/errors.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/swig/external_ip_alert.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/swig/fastresume_rejected_alert.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/swig/feed_handle.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/swig/feed_handle_vector.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/swig/feed_item.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/swig/feed_item_vector.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/swig/feed_settings.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/swig/feed_status.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/swig/file_completed_alert.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/swig/file_entry.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/swig/file_error_alert.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/swig/file_rename_failed_alert.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/swig/file_renamed_alert.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/swig/file_slice.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/swig/file_slice_vector.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/swig/file_storage.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/swig/fingerprint.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/frostwire-jlibtorrent.iml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/frostwire-jlibtorrent.ipr" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/swig/hash_failed_alert.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/swig/http_errors.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/swig/i2p_alert.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/swig/incoming_connection_alert.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/swig/int64_vector.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/swig/int_int_pair.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/swig/int_sha1_hash_map.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/swig/int_vector.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/swig/invalid_request_alert.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/swig/ip_filter.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/swig/lazy_entry.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/swig/libtorrent.i" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/swig/libtorrent.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/swig/libtorrentConstants.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/swig/libtorrent_jni.cpp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/swig/libtorrent_jni.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/swig/listen_failed_alert.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/swig/listen_succeeded_alert.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/swig/long_long_long_2_pair.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/swig/long_long_long_2_pair_vector.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/swig/lsd_peer_alert.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/swig/metadata_failed_alert.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/swig/metadata_received_alert.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/swig/move_flags_t.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/swig/partial_piece_info.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/swig/partial_piece_info_vector.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/swig/pascal_string.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/swig/pe_settings.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/swig/peer_alert.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/swig/peer_ban_alert.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/swig/peer_blocked_alert.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/swig/peer_connect_alert.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/swig/peer_connection.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/swig/peer_disconnected_alert.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/swig/peer_entry.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/swig/peer_entry_vector.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/swig/peer_error_alert.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/swig/peer_info.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/swig/peer_info_vector.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/swig/peer_list_entry.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/swig/peer_list_entry_vector.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/swig/peer_request.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/swig/peer_request_vector.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/swig/peer_snubbed_alert.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/swig/peer_unsnubbed_alert.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/swig/performance_alert.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/swig/piece_finished_alert.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/swig/policy.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/swig/port_filter.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/swig/portmap_alert.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/swig/portmap_error_alert.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/swig/portmap_log_alert.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/swig/proxy_settings.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/swig/ptime.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/swig/read_piece_alert.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/swig/request_dropped_alert.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/swig/rss_alert.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/swig/rss_item_alert.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/build/run_swig.sh" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/swig/save_resume_data_alert.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/swig/save_resume_data_failed_alert.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/swig/scrape_failed_alert.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/swig/scrape_reply_alert.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/swig/session.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/swig/session_extend.h" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/swig/session_extend.i" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/swig/session_proxy.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/swig/session_settings.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/swig/session_status.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/swig/sha1_hash.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/swig/sha1_hash_vector.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/swig/special_values.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/swig/stat.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/swig/stat_channel.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/swig/state_changed_alert.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/swig/state_update_alert.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/swig/stats_alert.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/swig/std_list.i" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/swig/std_map2.i" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/swig/std_vector2.i" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/swig/storage_mode_t.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/swig/storage_moved_alert.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/swig/storage_moved_failed_alert.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/swig/string_entry_map.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/swig/string_int_pair.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/swig/string_int_pair_vector.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/swig/string_lazy_entry_const_ptr_pair.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/swig/string_long_map.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/swig/string_string_pair.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/swig/string_string_pair_vector.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/swig/string_vector.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/swig/tcp_endpoint.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/swig/tcp_endpoint_vector.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/swig/time_duration.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/swig/time_resolutions.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/swig/torrent_added_alert.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/swig/torrent_alert.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/swig/torrent_checked_alert.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/swig/torrent_delete_failed_alert.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/swig/torrent_deleted_alert.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/swig/torrent_error_alert.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/swig/torrent_finished_alert.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/swig/torrent_handle.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/swig/torrent_handle_vector.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/swig/torrent_info.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/swig/torrent_need_cert_alert.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/swig/torrent_paused_alert.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/swig/torrent_removed_alert.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/swig/torrent_resumed_alert.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/swig/torrent_status.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/swig/torrent_status_vector.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/swig/torrent_update_alert.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/swig/tracker_alert.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/swig/tracker_announce_alert.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/swig/tracker_error_alert.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/swig/tracker_reply_alert.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/swig/tracker_warning_alert.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/swig/trackerid_alert.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/swig/udp_endpoint.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/swig/udp_error_alert.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/swig/ufloat16.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/swig/unsigned_char_vector.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/swig/unwanted_block_alert.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/swig/upnp_errors.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/swig/url_seed_alert.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/build/user-config.jam" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/swig/utp_status.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/swig/web_seed_entry.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frostwire-jlibtorrent/src/com/frostwire/jlibtorrent/swig/web_seed_entry_vector.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SellerTrade.iml" afterPath="$PROJECT_DIR$/SellerTrade.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SellerTrade.iws" afterPath="$PROJECT_DIR$/SellerTrade.iws" />
     </list>
     <ignored path="SellerTrade.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -36,13 +389,9 @@
       <file leaf-file-name="STAbstractServlet.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/seller/trade/servlets/STAbstractServlet.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="1863" max-vertical-offset="6183">
+            <state vertical-scroll-proportion="0.0" vertical-offset="1344" max-vertical-offset="5908">
               <caret line="64" column="22" selection-start-line="64" selection-start-column="22" selection-end-line="64" selection-end-column="22" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#6802#6803#0" expanded="true" />
-                <element signature="e#6854#6855#0" expanded="true" />
-              </folding>
+              <folding />
             </state>
           </provider>
         </entry>
@@ -50,7 +399,7 @@
       <file leaf-file-name="ServiceBroker.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/seller/trade/services/ServiceBroker.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="456" max-vertical-offset="1134">
+            <state vertical-scroll-proportion="0.0" vertical-offset="1008" max-vertical-offset="1176">
               <caret line="40" column="1" selection-start-line="40" selection-start-column="1" selection-end-line="40" selection-end-column="1" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -62,7 +411,7 @@
       <file leaf-file-name="ConfigurationKeys.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/seller/trade/core/ConfigurationKeys.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="483" max-vertical-offset="1134">
+            <state vertical-scroll-proportion="0.0" vertical-offset="84" max-vertical-offset="1176">
               <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
               <folding />
             </state>
@@ -72,7 +421,7 @@
       <file leaf-file-name="Configuration.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/seller/trade/core/Configuration.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.7480799" vertical-offset="2429" max-vertical-offset="3240">
+            <state vertical-scroll-proportion="0.53782666" vertical-offset="2633" max-vertical-offset="3360">
               <caret line="110" column="33" selection-start-line="110" selection-start-column="33" selection-end-line="110" selection-end-column="33" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -84,7 +433,7 @@
       <file leaf-file-name="JsonUtils.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/seller/trade/utils/JsonUtils.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1350">
+            <state vertical-scroll-proportion="0.0" vertical-offset="392" max-vertical-offset="1400">
               <caret line="14" column="2" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="2" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -96,7 +445,7 @@
       <file leaf-file-name="StringUtils.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/seller/trade/utils/StringUtils.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="27" max-vertical-offset="12609">
+            <state vertical-scroll-proportion="0.0" vertical-offset="56" max-vertical-offset="13076">
               <caret line="15" column="24" selection-start-line="15" selection-start-column="24" selection-end-line="15" selection-end-column="24" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -129,7 +478,7 @@
   <component name="ProjectFrameBounds">
     <option name="y" value="23" />
     <option name="width" value="1440" />
-    <option name="height" value="797" />
+    <option name="height" value="873" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -138,12 +487,14 @@
     <OptionsSetting value="true" id="Update" />
     <OptionsSetting value="true" id="Status" />
     <OptionsSetting value="true" id="Edit" />
+    <OptionsSetting value="true" id="Undo Check Out" />
+    <OptionsSetting value="true" id="Get Latest Version" />
     <ConfirmationsSetting value="0" id="Add" />
     <ConfirmationsSetting value="0" id="Remove" />
   </component>
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1">
-      <flattenPackages />
+      <flattenPackages ProjectPane="true" />
       <showMembers />
       <showModules />
       <showLibraryContents />
@@ -154,6 +505,7 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -186,10 +538,6 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="trade" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="utils" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -205,10 +553,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="trade" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -230,10 +574,6 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="trade" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="services" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -252,18 +592,45 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="trade" />
+              <option name="myItemId" value="core" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SellerTrade" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SellerTrade" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="core" />
+              <option name="myItemId" value="frostwire-jlibtorrent" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SellerTrade" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SellerTrade" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="frostwire-jlibtorrent" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
       <pane id="PackagesPane" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -274,11 +641,13 @@
     <property name="MemberChooser.showClasses" value="true" />
     <property name="MemberChooser.copyJavadoc" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/lib" />
-    <property name="project.structure.last.edited" value="Libraries" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.34177214" />
     <property name="LayoutCode.rearrangeEntriesJava" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="ignore_missing_gitignore" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -287,55 +656,6 @@
     </key>
   </component>
   <component name="RunManager">
-    <configuration default="true" type="JUnit" factoryName="JUnit">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <module name="" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="METHOD_NAME" />
-      <option name="TEST_OBJECT" value="class" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <envs />
-      <patterns />
-      <method />
-    </configuration>
-    <configuration default="true" type="Remote" factoryName="Remote">
-      <option name="USE_SOCKET_TRANSPORT" value="true" />
-      <option name="SERVER_MODE" value="false" />
-      <option name="SHMEM_ADDRESS" value="javadebug" />
-      <option name="HOST" value="localhost" />
-      <option name="PORT" value="5005" />
-      <method />
-    </configuration>
-    <configuration default="true" type="AndroidRunConfigurationType" factoryName="Android Application">
-      <module name="" />
-      <option name="ACTIVITY_CLASS" value="" />
-      <option name="MODE" value="default_activity" />
-      <option name="DEPLOY" value="true" />
-      <option name="ARTIFACT_NAME" value="" />
-      <option name="TARGET_SELECTION_MODE" value="EMULATOR" />
-      <option name="USE_LAST_SELECTED_DEVICE" value="false" />
-      <option name="PREFERRED_AVD" value="" />
-      <option name="USE_COMMAND_LINE" value="true" />
-      <option name="COMMAND_LINE" value="" />
-      <option name="WIPE_USER_DATA" value="false" />
-      <option name="DISABLE_BOOT_ANIMATION" value="false" />
-      <option name="NETWORK_SPEED" value="full" />
-      <option name="NETWORK_LATENCY" value="none" />
-      <option name="CLEAR_LOGCAT" value="false" />
-      <option name="SHOW_LOGCAT_AUTOMATICALLY" value="true" />
-      <option name="FILTER_LOGCAT_AUTOMATICALLY" value="true" />
-      <method />
-    </configuration>
     <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin">
       <module name="" />
       <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m -ea" />
@@ -352,24 +672,44 @@
       <setting name="launchBrowser" value="false" />
       <method />
     </configuration>
-    <configuration default="true" type="JarApplication" factoryName="JAR Application">
+    <configuration default="true" type="Specs2RunConfiguration" factoryName="Specs2">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <extension name="scalaCoverage" />
+      <module name="" />
+      <setting name="path" value="" />
+      <setting name="package" value="" />
+      <setting name="vmparams" value="" />
+      <setting name="params" value="" />
+      <setting name="workingDirectory" value="$PROJECT_DIR$" />
+      <setting name="searchForTest" value="Across module dependencies" />
+      <setting name="testName" value="" />
+      <setting name="testKind" value="Class" />
+      <setting name="showProgressMessages" value="true" />
       <envs />
       <method />
     </configuration>
-    <configuration default="true" type="Application" factoryName="Application">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+    <configuration default="true" type="Remote" factoryName="Remote">
+      <option name="USE_SOCKET_TRANSPORT" value="true" />
+      <option name="SERVER_MODE" value="false" />
+      <option name="SHMEM_ADDRESS" value="javadebug" />
+      <option name="HOST" value="localhost" />
+      <option name="PORT" value="5005" />
+      <method />
+    </configuration>
+    <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug">
+      <method />
+    </configuration>
+    <configuration default="true" type="Applet" factoryName="Applet">
+      <module name="" />
       <option name="MAIN_CLASS_NAME" />
+      <option name="HTML_FILE_NAME" />
+      <option name="HTML_USED" value="false" />
+      <option name="WIDTH" value="400" />
+      <option name="HEIGHT" value="300" />
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
       <option name="VM_PARAMETERS" />
-      <option name="PROGRAM_PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="ENABLE_SWING_INSPECTOR" value="false" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <module name="" />
-      <envs />
       <method />
     </configuration>
     <configuration default="true" type="TestNG" factoryName="TestNG">
@@ -400,42 +740,33 @@
       <listeners />
       <method />
     </configuration>
-    <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
-      <method />
-    </configuration>
-    <configuration default="true" type="FlexUnitRunConfigurationType" factoryName="FlexUnit" appDescriptorForEmulator="Android" class_name="" emulatorAdlOptions="" method_name="" package_name="" scope="Class">
-      <option name="BCName" value="" />
-      <option name="launcherParameters">
-        <LauncherParameters>
-          <option name="browser" value="a7bb68e0-33c0-4d6f-a81a-aac1fdb870c8" />
-          <option name="launcherType" value="OSDefault" />
-          <option name="newPlayerInstance" value="false" />
-          <option name="playerPath" value="/Applications/Flash Player Debugger.app" />
-        </LauncherParameters>
-      </option>
-      <option name="moduleName" value="" />
-      <option name="trusted" value="true" />
-      <method />
-    </configuration>
-    <configuration default="true" type="AndroidTestRunConfigurationType" factoryName="Android Tests">
+    <configuration default="true" type="JUnit" factoryName="JUnit">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <module name="" />
-      <option name="TESTING_TYPE" value="0" />
-      <option name="INSTRUMENTATION_RUNNER_CLASS" value="" />
-      <option name="METHOD_NAME" value="" />
-      <option name="CLASS_NAME" value="" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="TARGET_SELECTION_MODE" value="EMULATOR" />
-      <option name="USE_LAST_SELECTED_DEVICE" value="false" />
-      <option name="PREFERRED_AVD" value="" />
-      <option name="USE_COMMAND_LINE" value="true" />
-      <option name="COMMAND_LINE" value="" />
-      <option name="WIPE_USER_DATA" value="false" />
-      <option name="DISABLE_BOOT_ANIMATION" value="false" />
-      <option name="NETWORK_SPEED" value="full" />
-      <option name="NETWORK_LATENCY" value="none" />
-      <option name="CLEAR_LOGCAT" value="false" />
-      <option name="SHOW_LOGCAT_AUTOMATICALLY" value="true" />
-      <option name="FILTER_LOGCAT_AUTOMATICALLY" value="true" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+      <method />
+    </configuration>
+    <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
+      <node-options />
+      <gulpfile />
+      <tasks />
+      <pass-parent-envs>true</pass-parent-envs>
+      <envs />
       <method />
     </configuration>
     <configuration default="true" type="FlashRunConfigurationType" factoryName="Flash App">
@@ -473,6 +804,32 @@
       <option name="usbDebugPort" value="7936" />
       <method />
     </configuration>
+    <configuration default="true" type="AndroidTestRunConfigurationType" factoryName="Android Tests">
+      <module name="" />
+      <option name="TESTING_TYPE" value="0" />
+      <option name="INSTRUMENTATION_RUNNER_CLASS" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="CLASS_NAME" value="" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="TARGET_SELECTION_MODE" value="EMULATOR" />
+      <option name="USE_LAST_SELECTED_DEVICE" value="false" />
+      <option name="PREFERRED_AVD" value="" />
+      <option name="USE_COMMAND_LINE" value="true" />
+      <option name="COMMAND_LINE" value="" />
+      <option name="WIPE_USER_DATA" value="false" />
+      <option name="DISABLE_BOOT_ANIMATION" value="false" />
+      <option name="NETWORK_SPEED" value="full" />
+      <option name="NETWORK_LATENCY" value="none" />
+      <option name="CLEAR_LOGCAT" value="false" />
+      <option name="SHOW_LOGCAT_AUTOMATICALLY" value="true" />
+      <option name="FILTER_LOGCAT_AUTOMATICALLY" value="true" />
+      <method />
+    </configuration>
+    <configuration default="true" type="JarApplication" factoryName="JAR Application">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <envs />
+      <method />
+    </configuration>
     <configuration default="true" type="GradleRunConfiguration" factoryName="Gradle">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -489,20 +846,18 @@
       </ExternalSystemSettings>
       <method />
     </configuration>
-    <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug">
-      <method />
-    </configuration>
-    <configuration default="true" type="Applet" factoryName="Applet">
-      <module name="" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="HTML_FILE_NAME" />
-      <option name="HTML_USED" value="false" />
-      <option name="WIDTH" value="400" />
-      <option name="HEIGHT" value="300" />
-      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
-      <option name="VM_PARAMETERS" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
+    <configuration default="true" type="FlexUnitRunConfigurationType" factoryName="FlexUnit" appDescriptorForEmulator="Android" class_name="" emulatorAdlOptions="" method_name="" package_name="" scope="Class">
+      <option name="BCName" value="" />
+      <option name="launcherParameters">
+        <LauncherParameters>
+          <option name="browser" value="a7bb68e0-33c0-4d6f-a81a-aac1fdb870c8" />
+          <option name="launcherType" value="OSDefault" />
+          <option name="newPlayerInstance" value="false" />
+          <option name="playerPath" value="/Applications/Flash Player Debugger.app" />
+        </LauncherParameters>
+      </option>
+      <option name="moduleName" value="" />
+      <option name="trusted" value="true" />
       <method />
     </configuration>
     <configuration default="true" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java">
@@ -524,6 +879,73 @@
       <envs />
       <method />
     </configuration>
+    <configuration default="true" type="Application" factoryName="Application">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="uTestRunConfiguration" factoryName="utest">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <extension name="scalaCoverage" />
+      <module name="" />
+      <setting name="path" value="" />
+      <setting name="package" value="" />
+      <setting name="vmparams" value="" />
+      <setting name="params" value="" />
+      <setting name="workingDirectory" value="$PROJECT_DIR$" />
+      <setting name="searchForTest" value="Across module dependencies" />
+      <setting name="testName" value="" />
+      <setting name="testKind" value="Class" />
+      <setting name="showProgressMessages" value="true" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="ScalaTestRunConfiguration" factoryName="ScalaTest">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <extension name="scalaCoverage" />
+      <module name="" />
+      <setting name="path" value="" />
+      <setting name="package" value="" />
+      <setting name="vmparams" value="" />
+      <setting name="params" value="" />
+      <setting name="workingDirectory" value="$PROJECT_DIR$" />
+      <setting name="searchForTest" value="Across module dependencies" />
+      <setting name="testName" value="" />
+      <setting name="testKind" value="Class" />
+      <setting name="showProgressMessages" value="true" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="AndroidRunConfigurationType" factoryName="Android Application">
+      <module name="" />
+      <option name="ACTIVITY_CLASS" value="" />
+      <option name="MODE" value="default_activity" />
+      <option name="DEPLOY" value="true" />
+      <option name="ARTIFACT_NAME" value="" />
+      <option name="TARGET_SELECTION_MODE" value="EMULATOR" />
+      <option name="USE_LAST_SELECTED_DEVICE" value="false" />
+      <option name="PREFERRED_AVD" value="" />
+      <option name="USE_COMMAND_LINE" value="true" />
+      <option name="COMMAND_LINE" value="" />
+      <option name="WIPE_USER_DATA" value="false" />
+      <option name="DISABLE_BOOT_ANIMATION" value="false" />
+      <option name="NETWORK_SPEED" value="full" />
+      <option name="NETWORK_LATENCY" value="none" />
+      <option name="CLEAR_LOGCAT" value="false" />
+      <option name="SHOW_LOGCAT_AUTOMATICALLY" value="true" />
+      <option name="FILTER_LOGCAT_AUTOMATICALLY" value="true" />
+      <method />
+    </configuration>
     <list size="0" />
   </component>
   <component name="ShelveChangesManager" show_recycled="false" />
@@ -537,42 +959,43 @@
       <option name="number" value="Default" />
       <updated>1420902869627</updated>
       <workItem from="1420902871096" duration="1999000" />
+      <workItem from="1420905016731" duration="212000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1999000" />
+    <option name="totallyTimeSpent" value="2211000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1440" height="797" extended-state="6" />
-    <editor active="true" />
+    <frame x="0" y="23" width="1440" height="873" extended-state="0" />
+    <editor active="false" />
     <layout>
-      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
-      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.18955651" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
-      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.18955651" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -598,6 +1021,62 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/com/seller/trade/servlets/STAbstractServlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1344" max-vertical-offset="5908">
+          <caret line="64" column="22" selection-start-line="64" selection-start-column="22" selection-end-line="64" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/seller/trade/services/ServiceBroker.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1008" max-vertical-offset="1176">
+          <caret line="40" column="1" selection-start-line="40" selection-start-column="1" selection-end-line="40" selection-end-column="1" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/seller/trade/core/ConfigurationKeys.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="84" max-vertical-offset="1176">
+          <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/seller/trade/core/Configuration.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3360">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/seller/trade/utils/JsonUtils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="392" max-vertical-offset="1400">
+          <caret line="14" column="2" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="2" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/seller/trade/utils/StringUtils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="56" max-vertical-offset="13076">
+          <caret line="15" column="24" selection-start-line="15" selection-start-column="24" selection-end-line="15" selection-end-column="24" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/seller/trade/utils/StringUtils.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="27" max-vertical-offset="12609">
@@ -612,11 +1091,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="1863" max-vertical-offset="6183">
           <caret line="64" column="22" selection-start-line="64" selection-start-column="22" selection-end-line="64" selection-end-column="22" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#6802#6803#0" expanded="true" />
-            <element signature="e#6854#6855#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -658,7 +1133,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/seller/trade/core/Configuration.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7480799" vertical-offset="2429" max-vertical-offset="3240">
+        <state vertical-scroll-proportion="0.53782666" vertical-offset="2633" max-vertical-offset="3360">
           <caret line="110" column="33" selection-start-line="110" selection-start-column="33" selection-end-line="110" selection-end-column="33" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -723,6 +1198,7 @@
             <option name="proportions">
               <list>
                 <option value="0.34177214" />
+                <option value="0.6" />
               </list>
             </option>
           </splitter-proportions>

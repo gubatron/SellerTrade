@@ -1,0 +1,15 @@
+import option ; 
+  
+using gcc : arm : arm-linux-androideabi-g++ :
+    <cxxflags>-mthumb
+    <cxxflags>-fno-strict-aliasing
+    <cxxflags>-lstdc++
+    <cxxflags>-O3
+    <cxxflags>-DNDEBUG
+    <cxxflags>-D__GLIBC__
+    <cxxflags>-D_GLIBCXX__PTHREADS
+    <cxxflags>-D__arm__
+    <cxxflags>-D_REENTRANT
+    ;
+ 
+option.set keep-going : false ;
