@@ -41,17 +41,9 @@ public final class ServiceBroker {
 
         if (!configuration.getBoolean(ConfigurationKeys.ST_IS_LOBBY_SERVER)) {
             System.out.println("Announcing myself, not lobby.");
-            dhtService.announceNode();
+            dhtService.announceNode(configuration.getInt(ConfigurationKeys.ST_API_PORT));
         } else {
             System.out.println("Not announcing myself, I'm a lobby server....");
-            dhtService.announceNode();
-            try {
-                System.out.println("Announcing... (I Lied)");
-                Thread.sleep(15000);
-                System.out.println("Done announcing.");
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
         }
     }
 

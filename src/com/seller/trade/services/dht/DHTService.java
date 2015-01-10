@@ -8,7 +8,7 @@ public interface DHTService {
 
     public List<DHTNode> getNodes(String keyword);
 
-    public void announceNode();
+    public void announceNode(int httpPort);
 
     public void announceKeywords(List<String> keywords);
 }

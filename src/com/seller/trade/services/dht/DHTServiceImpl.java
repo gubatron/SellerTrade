@@ -67,9 +67,9 @@ public class DHTServiceImpl implements DHTService {
     }
 
     @Override
-    public void announceNode() {
+    public void announceNode(int httpPort) {
         System.out.println("Announcing sha1('hello.seller.trade') -> " + HELLO_SELLER_TRADE_SHA1);
-        dht.announce(HELLO_SELLER_TRADE_SHA1);
+        dht.announce(HELLO_SELLER_TRADE_SHA1, httpPort, 0);
     }
 
     @Override

@@ -36,9 +36,9 @@ public class LobbyServlet extends STAbstractServlet {
         if (nodes != null && !nodes.isEmpty()) {
             //Collections.shuffle(nodes);
             StringBuffer buffer = new StringBuffer();
-            //nodes.stream().forEach((d) -> { buffer.append(d.getIPAddress() + "\n");});
+
             for (DHTNode node : nodes) {
-                buffer.append(node.getIPAddress() + "<br>\n");
+                buffer.append(node.getIPAddress() + ":" + node.getHttpPort() + "<br>\n");
             }
             output = buffer.toString();//nodes.get(0).getIPAddress();
         }  else {
