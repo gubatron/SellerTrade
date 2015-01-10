@@ -44,6 +44,8 @@ public class DHTServiceImpl implements DHTService {
                 }
             }
         });
+
+        dht.waitNodes(1);
     }
 
     @Override
