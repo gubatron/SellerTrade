@@ -313,6 +313,17 @@ def getJarsInClassPathNotation(folder):
                 classPath = classPath + ':' + folder + os.sep + f
     return classPath
 
+def killJavaService(jpsPattern):
+    jpsGrepPIDCommand = 'jps -m | grep "' + jpsPattern + "\" | awk {'print $1'}"
+    stream = os.popen(jpsGrepPIDCommand)
+
+    try:
+      pidStr = stream.readline().strip()
+      os.system("kill -9 " + pidStr)
+    except Exception:
+      pass
+    stream.close()
+
 def runJavaService(clazz, config, configFilePath):
     print "Starting ",clazz
     lib_path = 'lib'
@@ -323,4 +334,5 @@ def runJavaService(clazz, config, configFilePath):
 if __name__ == '__main__':
     configFilePath = 'st.config.conf'
     config = loadConfig(configFilePath)
+    killJavaService('APIServer ' + configFilePath)
     runJavaService('com.seller.trade.services.APIServer', config, configFilePath)
