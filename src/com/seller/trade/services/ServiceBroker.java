@@ -43,7 +43,15 @@ public final class ServiceBroker {
             System.out.println("Announcing myself, not lobby.");
             dhtService.announceNode();
         } else {
-            System.out.println("Not announcing myself, I'm a lobby server.");
+            System.out.println("Not announcing myself, I'm a lobby server....");
+            dhtService.announceNode();
+            try {
+                System.out.println("Announcing... (I Lied)");
+                Thread.sleep(15000);
+                System.out.println("Done announcing.");
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
         }
     }
 

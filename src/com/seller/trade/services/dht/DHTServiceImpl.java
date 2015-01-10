@@ -12,6 +12,7 @@ import java.util.concurrent.TimeUnit;
 
 public class DHTServiceImpl implements DHTService {
 
+    private final String HELLO_SELLER_TRADE_SHA1 = "de97662e7ba270abbf67485f41bdfb8995f7960b";
     private final Session s;
     private final DHT dht;
 
@@ -47,13 +48,12 @@ public class DHTServiceImpl implements DHTService {
 
     @Override
     public List<DHTNode> getNodes() {
-        return getNodes("hello.seller.trade");
+        return getNodes(HELLO_SELLER_TRADE_SHA1);
     }
 
     @Override
-    public List<DHTNode> getNodes(String keyword) {
-        Sha1Hash hash = DHT.itemTargetId(new Entry(keyword));
-        ArrayList<TcpEndpoint> peers = dht.getPeers(hash.toHex(), 30, TimeUnit.SECONDS);
+    public List<DHTNode> getNodes(String sha1string) {
+        ArrayList<TcpEndpoint> peers = dht.getPeers(sha1string, 30, TimeUnit.SECONDS);
 
         ArrayList<DHTNode> nodes = new ArrayList<>(peers.size());
 
@@ -66,8 +66,8 @@ public class DHTServiceImpl implements DHTService {
 
     @Override
     public void announceNode() {
-        Sha1Hash hash = DHT.itemTargetId(new Entry("hello.seller.trade"));
-        dht.announce(hash.toHex());
+        System.out.println("Announcing sha1('hello.seller.trade') -> " + HELLO_SELLER_TRADE_SHA1);
+        dht.announce(HELLO_SELLER_TRADE_SHA1);
     }
 
     @Override
