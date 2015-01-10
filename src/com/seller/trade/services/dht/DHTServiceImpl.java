@@ -66,13 +66,15 @@ public class DHTServiceImpl implements DHTService {
 
     @Override
     public void announceNode() {
-        dht.announce("hello.seller.trade");
+        Sha1Hash hash = DHT.itemTargetId(new Entry("hello.seller.trade"));
+        dht.announce(hash.toHex());
     }
 
     @Override
     public void announceKeywords(List<String> keywords) {
         for (String keyword : keywords) {
-            dht.announce(keyword);
+            Sha1Hash hash = DHT.itemTargetId(new Entry(keyword));
+            dht.announce(hash.toHex());
         }
     }
 }
