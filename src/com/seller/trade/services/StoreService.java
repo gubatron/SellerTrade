@@ -25,14 +25,19 @@
  */
 package com.seller.trade.services;
 
+import com.frostwire.util.HttpClient;
+import com.frostwire.util.JdkHttpClient;
 import com.seller.trade.core.Configuration;
 import com.seller.trade.core.ConfigurationKeys;
 import com.seller.trade.models.Product;
+import com.seller.trade.models.SearchResult;
+import com.seller.trade.models.SearchResultList;
+import com.seller.trade.services.dht.DHTNode;
 import com.seller.trade.services.dht.DHTService;
+import com.seller.trade.utils.JsonUtils;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.io.IOException;
+import java.util.*;
 
 /**
  * Created by gubatron on 1/10/15.
@@ -98,5 +103,73 @@ public class StoreService {
         p.keywords = new String[] {"tshirt", "frostwire tshirt", "shirt", "male tshirt"};
 
         products.add(p);
+    }
+
+    public List<SearchResult> query(String q, int hops) {
+        List<SearchResult> results = new LinkedList<SearchResult>();
+
+        List<SearchResult> local = queryLocal(q);
+        results.addAll(local);
+
+        if (hops > 0) {
+            List<SearchResult> remote = queryNodes(q, hops - 1);
+            results.addAll(remote);
+        }
+
+        return results;
+    }
+
+    private List<SearchResult> queryNodes(String q, int hops) {
+        List<SearchResult> results = new LinkedList<SearchResult>();
+
+        List<DHTNode> nodes = broker.getDhtService().getNodes(q);
+
+        for (DHTNode n : nodes) {
+            results.addAll(queryNode(n, q, hops));
+        }
+
+        return results;
+    }
+
+    private List<SearchResult> queryNode(DHTNode node, String q, int hops) {
+        HttpClient httpClient = new JdkHttpClient();
+
+        String url = "http://" + node.getIPAddress() + ":" + node.getHttpPort() + "/search?q=" + q + "&hops=" + hops;
+        try {
+            String s = httpClient.get(url);
+            SearchResultList searchResultList = JsonUtils.toObject(s, SearchResultList.class);
+            if (searchResultList.results != null) {
+                return searchResultList.results;
+            }
+        } catch (Throwable e) {
+            e.printStackTrace();
+        }
+
+        return Collections.emptyList();
+    }
+
+    private List<SearchResult> queryLocal(String q) {
+        List<SearchResult> results = new LinkedList<SearchResult>();
+
+        for (Product p : products) {
+            if (matchProduct(p, q)) {
+                SearchResult sr = new SearchResult();
+                sr.product = p;
+                //sr.store =
+                results.add(sr);
+            }
+        }
+
+        return results;
+    }
+
+    private boolean matchProduct(Product p, String q) {
+        for (String keyword : p.keywords) {
+            if (q.equals(keyword)) {
+                return true;
+            }
+        }
+
+        return false;
     }
 }

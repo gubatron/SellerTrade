@@ -51,6 +51,7 @@ public class ConfigurationKeys {
     public static final String ST_EMAIL_TEST = "st.emails.test"; 
     public static final String ST_MAILING_LIST_SENDER_SLEEPING_TIME = "st.emails.mailing_list_sender_sleeping_time";
     public static final String ST_SEND_ACCESS_CONTROL_ALLOW_ORIGIN = "st.send_access_control_allow_origin";
+    public static final String ST_SEARCH_HOPS = "st.search.hops";
 
     public static final String AWS_ACCESS="aws.access";
     public static final String AWS_SECRET="aws.secret";

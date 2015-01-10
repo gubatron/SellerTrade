@@ -42,10 +42,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.seller.trade.core.Configuration;
 import com.seller.trade.core.ConfigurationKeys;
-import com.seller.trade.servlets.FlashPolicyServer;
-import com.seller.trade.servlets.HelloWorldServlet;
-import com.seller.trade.servlets.LobbyServlet;
-import com.seller.trade.servlets.STAbstractServlet;
+import com.seller.trade.servlets.*;
 import org.eclipse.jetty.server.DispatcherType;
 import org.eclipse.jetty.server.Request;
 import org.eclipse.jetty.server.Server;
@@ -84,6 +81,7 @@ public class APIServer { //extends PunsrAbstractServlet implements Handler {
 
         SERVLET_MAP = new HashMap<String, STAbstractServlet>();
         SERVLET_MAP.put("/", isLobbyServer ? new LobbyServlet("/", broker) : new HelloWorldServlet("hello", broker));
+        SERVLET_MAP.put("/search",  new SearchServlet("/search", broker));
     }
 
     @SuppressWarnings("rawtypes")

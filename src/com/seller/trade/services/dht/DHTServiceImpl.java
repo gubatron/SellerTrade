@@ -78,11 +78,16 @@ public class DHTServiceImpl implements DHTService {
 
     @Override
     public List<DHTNode> getNodes() {
-        return getNodes(HELLO_SELLER_TRADE_SHA1);
+        return getNodesByHash(HELLO_SELLER_TRADE_SHA1);
     }
 
     @Override
-    public List<DHTNode> getNodes(String sha1string) {
+    public List<DHTNode> getNodes(String keyword) {
+        final String keywordSha1Str = sha1hex("sellertrade:product:keyword:" + keyword);
+        return getNodesByHash(keywordSha1Str);
+    }
+
+    public List<DHTNode> getNodesByHash(String sha1string) {
         ArrayList<TcpEndpoint> peers = dht.getPeers(sha1string, 30, TimeUnit.SECONDS);
 
         ArrayList<DHTNode> nodes = new ArrayList<>(peers.size());
