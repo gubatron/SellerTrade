@@ -52,7 +52,7 @@ public class DHTServiceImpl implements DHTService {
         s = new Session();
         dht = new DHT(s);
         this.useLanMappings = useLanMappings;
-        LAN_MAPPINGS = (useLanMappings) ? getLanMappings() : new HashMap<>();
+        LAN_MAPPINGS = (useLanMappings) ? getLanMappings() : new HashMap<Integer,String>();
 
         s.addListener(new AlertListener() {
 

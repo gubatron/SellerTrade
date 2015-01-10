@@ -66,7 +66,7 @@ public final class ServiceBroker {
 
         int tcpPort = configuration.getInt(ConfigurationKeys.ST_API_PORT);
 
-        dhtService = new DHTServiceImpl();
+        dhtService = new DHTServiceImpl(configuration.getBoolean(ConfigurationKeys.ST_USE_LAN_MAPPINGS));
 
         if (!configuration.getBoolean(ConfigurationKeys.ST_IS_LOBBY_SERVER)) {
             System.out.println("Announcing myself, not lobby.");
