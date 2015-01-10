@@ -2,6 +2,8 @@ package com.seller.trade.services;
 
 import com.seller.trade.core.Configuration;
 import com.seller.trade.core.ConfigurationKeys;
+import com.seller.trade.services.dht.DHTService;
+import com.seller.trade.services.dht.DHTServiceImpl;
 import com.seller.trade.utils.Lumberjack;
 
 import java.util.List;
@@ -20,6 +22,7 @@ public final class ServiceBroker {
 
     protected final Logger LOG;
     private final Configuration configuration;
+    private final DHTService dhtService;
 
     private final List<String> servers;
 
@@ -33,9 +36,20 @@ public final class ServiceBroker {
         LOG = Lumberjack.getLogger(this);
         servers = configuration.getList(ConfigurationKeys.ST_API_SERVERS_IPS);
         System.out.println("ServiceBroker started.");
+
+        dhtService = new DHTServiceImpl();
+
+        if (!configuration.getBoolean(ConfigurationKeys.ST_IS_LOBBY_SERVER)) {
+            System.out.println("Announcing myself, not lobby.");
+            dhtService.announceNode();
+        } else {
+            System.out.println("Not announcing myself, I'm a lobby server.");
+        }
     }
 
     public Configuration getConfiguration() {
         return configuration;
     }
+
+    public DHTService getDhtService() { return dhtService; }
 }

@@ -113,7 +113,7 @@ public final class DHT {
 
     public ArrayList<TcpEndpoint> getPeers(String sha1, long timeout, TimeUnit unit) {
         final Sha1Hash target = new Sha1Hash(sha1);
-        final Object[] result = {null};
+        final Object[] result = { new ArrayList<TcpEndpoint>() };
         final CountDownLatch signal = new CountDownLatch(1);
 
         AlertListener l = new AlertListener() {

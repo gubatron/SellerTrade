@@ -9,4 +9,8 @@ public class DHTNode {
     public DHTNode(TcpEndpoint endp) {
         this.endp = endp;
     }
+
+    public final String getIPAddress() {
+        return this.endp.getAddress();
+    }
 }

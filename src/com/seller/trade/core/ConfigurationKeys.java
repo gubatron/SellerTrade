@@ -13,6 +13,7 @@ public class ConfigurationKeys {
     public static final String ST_JSON_PRETTY_PRINT = "st.json_pretty_print";
     public static final String ST_API_SERVERS_IPS = "st.api_servers_ips";
     public static final String ST_LIB_PATH = "st.lib_path";
+    public static final String ST_IS_LOBBY_SERVER = "st.is_lobby_server";
 
     public static final String ST_EMAIL_USERNAME = "st.emails.username";
     public static final String ST_EMAIL_PASSWORD = "st.emails.password";
