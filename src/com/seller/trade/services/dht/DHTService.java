@@ -10,5 +10,5 @@ public interface DHTService {
 
     public void announceNode(int httpPort);
 
-    public void announceKeywords(List<String> keywords);
+    public void announceKeywords(List<String> keywords, int httpPort);
 }

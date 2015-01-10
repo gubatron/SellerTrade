@@ -23,6 +23,7 @@ public final class ServiceBroker {
     protected final Logger LOG;
     private final Configuration configuration;
     private final DHTService dhtService;
+    private final StoreService storeService;
 
     private final List<String> servers;
 
@@ -45,6 +46,9 @@ public final class ServiceBroker {
         } else {
             System.out.println("Not announcing myself, I'm a lobby server....");
         }
+
+        storeService = new StoreService(configuration, this); //TODO: Make this without passing 'this'
+        storeService.announceProducts();
     }
 
     public Configuration getConfiguration() {
@@ -52,4 +56,6 @@ public final class ServiceBroker {
     }
 
     public DHTService getDhtService() { return dhtService; }
+
+    public StoreService getStoreService() { return storeService; }
 }

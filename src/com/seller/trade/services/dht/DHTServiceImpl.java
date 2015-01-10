@@ -6,6 +6,8 @@ import com.frostwire.jlibtorrent.alerts.DhtBootstrapAlert;
 import com.frostwire.jlibtorrent.alerts.DhtGetPeersReplyAlert;
 import com.frostwire.jlibtorrent.alerts.ExternalIpAlert;
 
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
@@ -73,10 +75,30 @@ public class DHTServiceImpl implements DHTService {
     }
 
     @Override
-    public void announceKeywords(List<String> keywords) {
+    public void announceKeywords(List<String> keywords, int httpPort) {
         for (String keyword : keywords) {
-            Sha1Hash hash = DHT.itemTargetId(new Entry(keyword));
-            dht.announce(hash.toHex());
+            final String keywordSha1Str = sha1hex("sellertrade:product:keyword:" + keyword);
+            dht.announce(keywordSha1Str,httpPort,0);
+            System.out.println("announcing [sellertrade:product:keyword:" + keyword + "] -> " + keywordSha1Str);
         }
+    }
+
+    private static String toHex(byte[] arr) {
+        return LibTorrent.toHex(arr);
+    }
+
+    private static byte[] sha1(String str) {
+        MessageDigest digest = null;
+        try {
+            digest = MessageDigest.getInstance("SHA1");
+        } catch (NoSuchAlgorithmException e) {
+            e.printStackTrace();
+        }
+        digest.update(str.getBytes());
+        return digest.digest();
+    }
+
+    private static String sha1hex(String str) {
+        return toHex(sha1(str));
     }
 }
