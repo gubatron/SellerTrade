@@ -1,0 +1,12 @@
+st.version=0.0.1
+st.lib_path=/Users/gubatron/workspace.frostwire/SellerTrade/lib
+st.api_port=8990
+st.site_name=SellerTrade
+st.site_slogan=The world's largest free peer to peer seller marketplace.                                                                                                                               
+st.site_description=The world's largest free peer to peer seller marketplace.
+st.site_keywords=bitcoin, p2p, marketplace
+st.site_http_prefix=http://www.seller.trade
+st.site_user_id=562287433
+st.json_pretty_print=true
+st.send_access_control_allow_origin=true
+st.api_servers_ips=172.16.2.118

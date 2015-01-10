@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="sellertrade" default="main" basedir=".">
+        <property name="jars" value="./lib" />
+
+        <path id="default.classpath">
+                <fileset dir="${jars}" includes="*.jar" />
+		<pathelement location="/usr/lib/jvm/java-1.7.0-openjdk-amd64/lib/tools.jar"/>
+                <!-- java 7 default path on gubatron's machine, should not break other builds, pinky has to add java 7 -->
+                <pathelement location="/Library/Java/JavaVirtualMachines/jdk1.7_current/Contents/Home/lib/tools.jar"/>
+        </path>
+
+        <target name="main">
+                <mkdir dir="bin" />
+
+                <!-- build -->
+                <javac srcdir="./src" destdir="bin" fork="true" includeantruntime="false" debug="true" debuglevel="lines,vars,source">
+                        <classpath refid="default.classpath"/>
+                        <src path="./src/" />
+                </javac>
+
+                <!-- copy resources -->
+                <!-- jar -->
+                <jar jarfile="sellertrade.jar" level="9">
+                  <fileset dir="bin" />
+                </jar>
+        </target>
+
+        <target name="clean">
+                <delete dir="bin" />
+        </target>
+</project>

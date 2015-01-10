@@ -1,4 +1,4 @@
-package com.seller.trade.servlets;
+package com.seller.trade.services;
 
 import java.io.IOException;
 import java.util.Collection;
@@ -10,18 +10,15 @@ import java.util.Set;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-import javax.servlet.Filter;
-import javax.servlet.FilterChain;
-import javax.servlet.FilterConfig;
 import javax.servlet.ServletException;
-import javax.servlet.ServletRequest;
-import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.seller.trade.core.Configuration;
 import com.seller.trade.core.ConfigurationKeys;
-import com.seller.trade.services.ServiceBroker;
+import com.seller.trade.servlets.FlashPolicyServer;
+import com.seller.trade.servlets.HelloWorldServlet;
+import com.seller.trade.servlets.STAbstractServlet;
 import org.eclipse.jetty.server.DispatcherType;
 import org.eclipse.jetty.server.Request;
 import org.eclipse.jetty.server.Server;
