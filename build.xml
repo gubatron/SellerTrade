@@ -16,6 +16,7 @@
                 <javac srcdir="./src" destdir="bin" fork="true" includeantruntime="false" debug="true" debuglevel="lines,vars,source">
                         <classpath refid="default.classpath"/>
                         <src path="./src/" />
+                        <src path="./frostwire-jlibtorrent/src/" />
                 </javac>
 
                 <!-- copy resources -->
