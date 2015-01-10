@@ -129,7 +129,7 @@ public class APIServer { //extends PunsrAbstractServlet implements Handler {
 
         int port = DEFAULT_PORT;
         try {
-            port = configuration.getInt(ConfigurationKeys.ST_API_PORT);
+            port = configuration.getInt(ConfigurationKeys.ST_SERVER_PORT);
         } catch (Exception e) {
             MAIN_LOG.log(Level.WARNING, "Invalid port on config.conf, using default port " + port);
         }

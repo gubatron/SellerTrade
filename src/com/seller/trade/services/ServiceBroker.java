@@ -51,7 +51,7 @@ public final class ServiceBroker {
     private final DHTService dhtService;
     private final StoreService storeService;
 
-    private final List<String> servers;
+    private final String serverIp;
 
     public ServiceBroker(Configuration configuration) {
         this(configuration, true, true, true);
@@ -61,10 +61,10 @@ public final class ServiceBroker {
         System.out.println("Starting ServiceBroker...");
         this.configuration = configuration;
         LOG = Lumberjack.getLogger(this);
-        servers = configuration.getList(ConfigurationKeys.ST_API_SERVERS_IPS);
+        serverIp = configuration.getString(ConfigurationKeys.ST_SERVER_IP);
         System.out.println("ServiceBroker started.");
 
-        int tcpPort = configuration.getInt(ConfigurationKeys.ST_API_PORT);
+        int tcpPort = configuration.getInt(ConfigurationKeys.ST_SERVER_PORT);
 
         dhtService = new DHTServiceImpl(configuration.getBoolean(ConfigurationKeys.ST_USE_LAN_MAPPINGS));
 
@@ -77,6 +77,10 @@ public final class ServiceBroker {
 
         storeService = new StoreService(configuration, this); //TODO: Make this without passing 'this'
         storeService.announceProducts();
+    }
+
+    public String getServerIp() {
+        return serverIp;
     }
 
     public Configuration getConfiguration() {

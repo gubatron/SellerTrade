@@ -57,7 +57,7 @@ public class StoreService {
     //todo: put this on ExecutorService and do it in the background.
     public void announceProducts() {
         final DHTService dhtService = broker.getDhtService();
-        final int httpPort = configuration.getInt(ConfigurationKeys.ST_API_PORT);
+        final int httpPort = configuration.getInt(ConfigurationKeys.ST_SERVER_PORT);
         loadProducts();
 
         for (Product p : products) {
@@ -125,7 +125,9 @@ public class StoreService {
         List<DHTNode> nodes = broker.getDhtService().getNodes(q);
 
         for (DHTNode n : nodes) {
-            results.addAll(queryNode(n, q, hops));
+            if (!broker.getServerIp().equals(n.getIPAddress())) {
+                results.addAll(queryNode(n, q, hops));
+            }
         }
 
         return results;
@@ -135,6 +137,7 @@ public class StoreService {
         HttpClient httpClient = new JdkHttpClient();
 
         String url = "http://" + node.getIPAddress() + ":" + node.getHttpPort() + "/search?q=" + q + "&hops=" + hops;
+        System.out.println(url);
         try {
             String s = httpClient.get(url);
             SearchResultList searchResultList = JsonUtils.toObject(s, SearchResultList.class);
