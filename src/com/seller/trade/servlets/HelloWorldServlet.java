@@ -26,6 +26,7 @@
 
 package com.seller.trade.servlets;
 
+import com.seller.trade.core.ConfigurationKeys;
 import com.seller.trade.services.ServiceBroker;
 
 import javax.servlet.ServletException;
@@ -45,6 +46,6 @@ public class HelloWorldServlet extends STAbstractServlet {
     protected void handleUncached(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         response.setContentType("text/html");
         response.setStatus(HttpServletResponse.SC_OK);
-        response.getWriter().println("Hello World");
+        response.getWriter().println("Hello World: " + broker.getConfiguration().getString(ConfigurationKeys.ST_SITE_NAME));
     }
 }

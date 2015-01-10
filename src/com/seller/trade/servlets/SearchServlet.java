@@ -32,7 +32,7 @@ public class SearchServlet extends STAbstractServlet {
     @Override
     protected void handleUncached(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         String output;
-        response.setContentType("text/html");
+        response.setContentType("text/json");
         response.setStatus(HttpServletResponse.SC_OK);
 
         String q = getDefaultParameter(request, "q", "");

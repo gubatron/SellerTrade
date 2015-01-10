@@ -64,11 +64,13 @@ public final class ServiceBroker {
         servers = configuration.getList(ConfigurationKeys.ST_API_SERVERS_IPS);
         System.out.println("ServiceBroker started.");
 
+        int tcpPort = configuration.getInt(ConfigurationKeys.ST_API_PORT);
+
         dhtService = new DHTServiceImpl();
 
         if (!configuration.getBoolean(ConfigurationKeys.ST_IS_LOBBY_SERVER)) {
             System.out.println("Announcing myself, not lobby.");
-            dhtService.announceNode(configuration.getInt(ConfigurationKeys.ST_API_PORT));
+            dhtService.announceNode(tcpPort);
         } else {
             System.out.println("Not announcing myself, I'm a lobby server....");
         }
