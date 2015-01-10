@@ -6,7 +6,10 @@ package com.seller.trade.servlets;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.seller.trade.core.ConfigurationKeys;
+import com.seller.trade.services.ServiceBroker;
 import com.seller.trade.utils.Lumberjack;
+import com.seller.trade.utils.StringUtils;
 import org.eclipse.jetty.server.Request;
 
 import javax.servlet.ServletException;
@@ -35,7 +38,6 @@ public abstract class STAbstractServlet extends HttpServlet {
 
     /**
      * Most generic pattern, basically letters, numbers, "-" and "_"
-     * See {@link APIServer#handle(String, Request, HttpServletRequest, HttpServletResponse)}
      */
     protected static Pattern URL_COMMAND_PATTERN = Pattern.compile("^/([a-zA-Z0-9-_]+)(.*)");
 
@@ -49,7 +51,7 @@ public abstract class STAbstractServlet extends HttpServlet {
      * <p/>
      * Try to not maintain state if you need to handle two different commands
      * with the same handler, or refactor to allow handlers to use more than
-     * one command on {@link #initParsingParameters()}
+     * one command on initParsingParameters()
      *
      * @param urlCommandName
      */
@@ -59,7 +61,7 @@ public abstract class STAbstractServlet extends HttpServlet {
 
     protected ServiceBroker broker;
 
-    public PunsrAbstractServlet(String urlCommand, ServiceBroker broker) {
+    public STAbstractServlet(String urlCommand, ServiceBroker broker) {
         //DM = MockDataMediator.instance();
 
         LOG = Lumberjack.getLogger(this);
@@ -81,7 +83,7 @@ public abstract class STAbstractServlet extends HttpServlet {
     }
 
     public void handle(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-        if (broker.getConfiguration().getBoolean("punsr.send_access_control_allow_origin")) {
+        if (broker.getConfiguration().getBoolean(ConfigurationKeys.ST_SEND_ACCESS_CONTROL_ALLOW_ORIGIN)) {
             response.addHeader("Access-Control-Allow-Origin", "*");
         }
 
@@ -101,8 +103,6 @@ public abstract class STAbstractServlet extends HttpServlet {
      * This is what you have to implement on your handler.
      * The output of this will be cached for you by my implementation of handle()
      *
-     * @param target
-     * @param baseRequest
      * @param request
      * @param response
      */
@@ -112,7 +112,6 @@ public abstract class STAbstractServlet extends HttpServlet {
      * Sends the JSON string as a response. Sends the right content type headers for JSON.
      * Assumes you're sending well formed JSON, there's no validation.
      *
-     * @param baseRequest
      * @param response
      * @param jsonOutput
      * @throws IOException
@@ -130,7 +129,6 @@ public abstract class STAbstractServlet extends HttpServlet {
     /**
      * Converts the given object into a json string and sends it.
      *
-     * @param baseRequest
      * @param response
      * @param outputObject
      * @throws IOException
@@ -151,8 +149,6 @@ public abstract class STAbstractServlet extends HttpServlet {
      * results: [ T1, T2, ... ,TN ]
      * }
      *
-     * @param <T>
-     * @param baseRequest
      * @param response
      * @param results
      * @throws IOException

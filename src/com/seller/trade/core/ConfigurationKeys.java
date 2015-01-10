@@ -22,8 +22,9 @@ public class ConfigurationKeys {
     public static final String ST_EMAIL_FROM = "st.emails.from";
     public static final String ST_EMAIL_RESET_RETRY_TIMEOUT = "st.emails.reset_retry_timeout";
     public static final String ST_EMAIL_TEST = "st.emails.test"; 
-    public static final String ST_MAILING_LIST_SENDER_SLEEPING_TIME = "st.emails.mailing_list_sender_sleeping_time"; 
-    
+    public static final String ST_MAILING_LIST_SENDER_SLEEPING_TIME = "st.emails.mailing_list_sender_sleeping_time";
+    public static final String ST_SEND_ACCESS_CONTROL_ALLOW_ORIGIN = "st.send_access_control_allow_origin";
+
     public static final String AWS_ACCESS="aws.access";
     public static final String AWS_SECRET="aws.secret";
     public static final String AWS_SQS_SERVICE_URL = "aws.sqs.service_url";
@@ -31,6 +32,7 @@ public class ConfigurationKeys {
     public static final String AWS_SQS_NEWSLETTER_URL = "aws.sqs.newsletter_url";
     
     public static final String WEB_PATH = "website.path";
+
 
     protected ConfigurationKeys() {
     }
