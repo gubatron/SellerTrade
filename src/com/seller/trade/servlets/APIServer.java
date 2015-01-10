@@ -134,7 +134,7 @@ public class APIServer { //extends PunsrAbstractServlet implements Handler {
         fps.start();
 
         try {
-            MAIN_LOG.log(Level.ALL, "Starting DiccionarioChimbo.com APIServer on port " + port);
+            MAIN_LOG.log(Level.ALL, "Starting SellerTrade APIServer on port " + port);
             server.start();
             server.join();
         } catch (Exception e) {
