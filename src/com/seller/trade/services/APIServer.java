@@ -26,20 +26,6 @@
 
 package com.seller.trade.services;
 
-import java.io.IOException;
-import java.util.Collection;
-import java.util.EnumSet;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Map.Entry;
-import java.util.Set;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
 import com.seller.trade.core.Configuration;
 import com.seller.trade.core.ConfigurationKeys;
 import com.seller.trade.servlets.*;
@@ -49,13 +35,21 @@ import org.eclipse.jetty.server.Server;
 import org.eclipse.jetty.servlet.ServletContextHandler;
 import org.eclipse.jetty.servlet.ServletHolder;
 
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+import java.util.*;
+import java.util.Map.Entry;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  * This is the top level Handler, it forwards requests to other handlers depending on the command being received.
  * When I add REDIS to the mix, the redis handler will probably be composed in here to have a caching layer for
  * every request.
- * 
- * @author gubatron
  *
+ * @author gubatron
  */
 public class APIServer { //extends PunsrAbstractServlet implements Handler {
 
@@ -66,12 +60,12 @@ public class APIServer { //extends PunsrAbstractServlet implements Handler {
     private Map<String, STAbstractServlet> SERVLET_MAP;
 
     private final ServiceBroker broker;
-    
+
     public APIServer(ServiceBroker serviceBroker) {
         broker = serviceBroker;
         initServletMap();
     }
-    
+
     /*
      * All these guys return JSON output, which should be cached using an
      * all purpose cache technology like Redis.
@@ -84,6 +78,7 @@ public class APIServer { //extends PunsrAbstractServlet implements Handler {
         SERVLET_MAP.put("search", new SearchServlet("search", broker));
         SERVLET_MAP.put("hello", new HelloWorldServlet("hello", broker));
         SERVLET_MAP.put("test", new WebPageServlet("test", broker, "test.html"));
+        SERVLET_MAP.put("product", new ProductPageServlet("product", broker));
     }
 
     @SuppressWarnings("rawtypes")
@@ -101,17 +96,17 @@ public class APIServer { //extends PunsrAbstractServlet implements Handler {
     }
 
     private void addServletsToContextHandler(ServletContextHandler context) {
-       
+
         for (Entry<String, STAbstractServlet> entry : SERVLET_MAP.entrySet()) {
-            String contextPath =  "/" + entry.getKey() + "/";
-            
-            if(contextPath.equals("///")) {
+            String contextPath = "/" + entry.getKey() + "/";
+
+            if (contextPath.equals("///")) {
                 contextPath = "/";
             }
-            
-            System.out.println("key: ["+entry.getKey()+"] value: ["+entry.getValue().getClass().getName()+"] contextPath: ["+contextPath+"]");
-            
-            context.addServlet(new ServletHolder(entry.getValue()),contextPath);
+
+            System.out.println("key: [" + entry.getKey() + "] value: [" + entry.getValue().getClass().getName() + "] contextPath: [" + contextPath + "]");
+
+            context.addServlet(new ServletHolder(entry.getValue()), contextPath);
         }
     }
 
@@ -124,7 +119,7 @@ public class APIServer { //extends PunsrAbstractServlet implements Handler {
             configuration = new Configuration(args[0]);
             broker = new ServiceBroker(configuration);
         } catch (final Exception e) {
-            MAIN_LOG.log(Level.SEVERE, "config.conf could not be found or read.",e);
+            MAIN_LOG.log(Level.SEVERE, "config.conf could not be found or read.", e);
             return;
         }
 
@@ -140,19 +135,19 @@ public class APIServer { //extends PunsrAbstractServlet implements Handler {
             @Override
             public void handle(String target, Request baseRequest, HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
                 super.handle(target, baseRequest, request, response);
-                
-                System.out.println("Server.handle. target: ["+ target +"]");
+
+                System.out.println("Server.handle. target: [" + target + "]");
                 System.out.println("Server.handle. server name: [" + baseRequest.getServerName() + "]");
                 System.out.println("\n");
             }
         };
-        
+
         ServletContextHandler context = new ServletContextHandler(ServletContextHandler.SESSIONS);
-        
+
         Set<DispatcherType> requestDispatcherEnumSet = EnumSet.allOf(DispatcherType.class);
         //context.addFilter(APIServerFilter.class, "/*",(EnumSet<DispatcherType>) requestDispatcherEnumSet);
         server.setHandler(context);
-        
+
         //automatically add all the Servlets.
         apiServer.addServletsToContextHandler(context);
 

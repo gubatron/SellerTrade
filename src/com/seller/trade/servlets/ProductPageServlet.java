@@ -24,20 +24,27 @@
  WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-package com.seller.trade.models;
+package com.seller.trade.servlets;
 
-public class Product {
+import com.seller.trade.models.Product;
+import com.seller.trade.services.ServiceBroker;
 
-    public long id;
-    public String name;
-    public String description;
-    public String[] keywords;
-    public String thumbnailUrl;
+import javax.servlet.http.HttpServletRequest;
 
-    /**
-     * No price volatility anxiety, thank you BitPay.
-     */
-    public float usdPrice;
+public class ProductPageServlet extends WebPageServlet {
 
-    // TODO: list of pictures urls, for more product pictures.
+    public ProductPageServlet(String command, ServiceBroker broker) {
+        super(command, broker, "product.html");
+    }
+
+    @Override
+    protected String processHtml(HttpServletRequest request, String html) {
+
+        long id = Long.parseLong(getDefaultParameter(request, "id"));
+        Product p = broker.getStoreService().getProduct(id);
+
+        html = html.replace("$name", p.name);
+
+        return html;
+    }
 }

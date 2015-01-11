@@ -36,7 +36,6 @@ import com.seller.trade.services.dht.DHTNode;
 import com.seller.trade.services.dht.DHTService;
 import com.seller.trade.utils.JsonUtils;
 
-import java.io.IOException;
 import java.util.*;
 
 /**
@@ -68,7 +67,7 @@ public class StoreService {
     /**
      * In the future we'll have here a parametric interface to load products from
      * whatever e-commerce solution you're already using.
-     *
+     * <p>
      * For now, hackathon purposes, we'll just load a hardcoded list.
      * TODO-HACKATHON: Load product list from JSON text file.
      */
@@ -89,7 +88,7 @@ public class StoreService {
         p.usdPrice = 32.99f;
 
         //these are the keywords we'll use to announce this product on the DHT.
-        p.keywords = new String[] {"hoodie","frostwire","sweater","unisex", "zip hoodie"};
+        p.keywords = new String[]{"hoodie", "frostwire", "sweater", "unisex", "zip hoodie"};
         products.add(p);
 
         p = new Product();
@@ -100,7 +99,7 @@ public class StoreService {
                 "Each order includes 10 free FrostWire stickers.";
         p.thumbnailUrl = "http://cdn2.bigcommerce.com/server100/vhyaryj/products/36/images/208/blue__76605.1405366443.300.400.png?c=2";
         p.usdPrice = 19.99f;
-        p.keywords = new String[] {"tshirt", "frostwire tshirt", "shirt", "male tshirt"};
+        p.keywords = new String[]{"tshirt", "frostwire tshirt", "shirt", "male tshirt"};
 
         products.add(p);
     }
@@ -174,5 +173,15 @@ public class StoreService {
         }
 
         return false;
+    }
+
+    public Product getProduct(long id) {
+        for (Product p : products) {
+            if (p.id == id) {
+                return p;
+            }
+        }
+
+        return null;
     }
 }

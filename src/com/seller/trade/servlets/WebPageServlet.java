@@ -50,10 +50,10 @@ public class WebPageServlet extends STAbstractServlet {
         response.setStatus(HttpServletResponse.SC_OK);
 
         String html = new String(Files.readAllBytes(Paths.get("pages", filename)));
-        response.getWriter().println(processHtml(html));
+        response.getWriter().println(processHtml(request, html));
     }
 
-    protected String processHtml(String html) {
+    protected String processHtml(HttpServletRequest request, String html) {
         return html;
     }
 }
