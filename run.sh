@@ -333,6 +333,9 @@ def runJavaService(clazz, config, configFilePath):
 
 if __name__ == '__main__':
     configFilePath = 'st.config.conf'
+    if len(sys.argv) == 2:
+        configFilePath = sys.argv[1]
+
     config = loadConfig(configFilePath)
     killJavaService('APIServer ' + configFilePath)
     runJavaService('com.seller.trade.services.APIServer', config, configFilePath)
