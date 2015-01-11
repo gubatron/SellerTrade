@@ -199,10 +199,106 @@ public final class ProductsData {
     }
 
     public static List<Product> set1() {
-        return Arrays.asList(product1(), product2(), product3(), product4());
+        return Arrays.asList(product1(), product2(), product3(), product4(), product5(), product6(), product7(), product8());
     }
 
     public static List<Product> set2() {
-        return Arrays.asList(product5(), product6(), product7(), product8());
+        return Arrays.asList(amz9(), amz10(), amz11(), amz12(), amz13(), amz14());
+    }
+
+    public static Product amz9() {
+        Product p = new Product();
+
+        p.id = 9;
+        p.name = "Paul Mitchell Tea Tree Special Shampoo-Conditioner";
+        p.description = "Ordinary Shampoos need not apply! Get a head start every morning and experience the tingle of invigorating tea tree oil, peppermint and lavender. Help wash away impurities as hair becomes fresh and clean, full of vitality and luster. Color safe and ideal for all hair types \n" +
+                "\n" +
+                "Your hair deserves special treatment. Experience the natural magic of tea tree oil, peppermint and lavender. Enjoy an invigorating tingle that leaves hair and scalp looking and feeling healthy. The moisturizing botanical blend tackles tangles for instant manageability, Color safe and ideal for all hair types.";
+        p.thumbnailUrl = "http://ecx.images-amazon.com/images/I/31xtH-5pMjL._SL190_CR0,0,190,246_.jpg";
+        p.usdPrice = 49.99f;
+        p.bitpayData = "YVPK42Se8LSFZ5U6uibF8K";
+
+        p.keywords = new String[]{"shampoo", "conditioner"};
+
+        return p;
+    }
+
+    public static Product amz10() {
+        Product p = new Product();
+
+        p.id = 10;
+        p.name = "Pureology Hydrate Shampoo and Hydrate Conditioner";
+        p.description = "HYDRATETM Shampoo 8.5 oz Concentrated Formula FOR DRY COLOUR-TREATED HAIR Gently cleanse without stripping colour with this concentrated moisturizing shampoo. ZeroSulfate formula with the exclusive AntiFadeComplex delivers a rich lather, while infusing hair with essential hydration and colour retention. FEATURES ZeroSulfate Sulfate-free, salt-free, colour-preserving formula derived from coconut, corn and sugar Natural Plant Extracts Rose, Sandalwood and Green Tea Signature Aromatherapy Blend Ylang Ylang, Bergamot, Anise and Patchouli BENEFITS Concentrated formula Luxurious lather, easy rinsing Extra gentle cleansers Does not strip colour For concentrated natural conditioning Luxurious fragrance for a multisensorial, spa-like experience HOW TO USE Apply to wet hair and lather. Rinse. Repeat if necessary. HYDRATETM Condition 8.5 oz Concentrated Formula FOR DRY COLOUR-TREATED HAIR Reveals soft, lustrous hair while protecting colour vibrancy with this luxurious, concentrated daily hydrating conditioner. The exclusive AntiFadeComplexmaximizes colour retention. FEATURES Jojoba Esters and Shea Butter Natural Plant Extracts Peppermint, Sage and Rosemary Signature Aromatherapy Blend Peppermint and Corn Mint Essential Oils BENEFITS Intensely hydrate without weighing hair down For concentrated natural conditioning Awakens the senses with an energizing, refreshing fragrance Replenishes parched hair with movement and manageability Rehydrates lightened and chemically relaxed hair Minimizes static HOW TO USE Massage gently into hair and scalp. Wait 1-2 minutes. Rinse.";
+        p.thumbnailUrl = "http://ecx.images-amazon.com/images/I/21sbh-1F1GL._SL190_CR0,0,190,246_.jpg";
+        p.usdPrice = 44.90f;
+        p.bitpayData = "nuSuRH8KfCQiNi6gnsFtH";
+
+        p.keywords = new String[]{"shampoo", "conditioner", "hydrate"};
+
+        return p;
+    }
+
+    public static Product amz11() {
+        Product p = new Product();
+
+        p.id = 11;
+        p.name = "Brazilian Blowout Anti-Frizz Shampoo & Conditioner";
+        p.description = "Brazilian Blowout Anti-Frizz Shampoo & Conditioner 12-ounce bottles Brazilian Blowout Acai Anti-Frizz Shampoo: Sulfate free formula, gently cleanses, retains moisture, humidity resistant, and color safe Acai Anti-Frizz Shampoo is a sulfate-free formula that thoroughly cleanses the hair while maintaining vital moisture for increased strength and radiant shine. An exclusive Brazilian Super-Nutrient Complex infuses the hair with a rich source of amino acids to help strengthen while locking in moisture and locking out humidity. The end result is smooth, frizz-free, radiant hair. Acai Anti-Frizz Conditioner is a deep moisturizing conditioner that infuses the hair with the vital moisture and nutrients needed to maintain the optimal strength and health of the hair. An exclusive Brazilian Super Nutrient Complex fortifies and repairs the hair while locking in moisture and locking out humidity. The end result is healthy, frizz-free, radiant hair.";
+        p.thumbnailUrl = "http://ecx.images-amazon.com/images/I/41kD4%2BRVIsL._SL246_SX190_CR0,0,190,246_.jpg";
+        p.usdPrice = 36.16f;
+        p.bitpayData = "N1YHRPnBUUxfMW3xwbPp2D";
+
+        p.keywords = new String[]{"shampoo", "conditioner", "frizz", "anti frizz"};
+
+        return p;
+    }
+
+    public static Product amz12() {
+        Product p = new Product();
+
+        p.id = 12;
+        p.name = "Kiss My Face Naked Pure Olive Oil Bar Soap";
+        p.description = "Made with 86% pure olive oil for superior moisturizing. pack of three 4 ounce bars is a 33% savings over individual bar purchase. A natural cleansing and moisturizing soap. For centuries, the people of the Mediterranean have recognized the benefits of olive oil to the skin. Long lasting and made from the purest natural ingredients, it is a superb moisturizer suitable for all skin types. It's simple and pure. This moisturizing bar was created without animal ingredients, artificial colors, unnecessary chemicals or animal testing. Made in Greece.";
+        p.thumbnailUrl = "http://ecx.images-amazon.com/images/I/51Py-y8085L._SL190_SY246_CR0,0,190,246_.jpg";
+        p.usdPrice = 4.99f;
+        p.bitpayData = "E1wGbPx2nHni9QdR51bMGP";
+
+        p.keywords = new String[]{"soap", "oil bar"};
+
+        return p;
+    }
+
+    public static Product amz13() {
+        Product p = new Product();
+
+        p.id = 13;
+        p.name = "Lacoste Eau de Lacoste - Rouge Eau de Toilet";
+        p.description = "Eau de Lacoste L.12.12 Rouge is a lively fragrance built around sparkling red tea beautifully contrasted with a blend of ginger, black pepper and cardamom ensuing in a masculine scent with an energetic spirit.\n" +
+                "Benefits\n" +
+                "Energetic, dynamic and playful, L.12.12 Rouge captures the spirit and authenticity of the red L.12.12 polo shirt.";
+        p.thumbnailUrl = "http://ecx.images-amazon.com/images/I/41jGc5OIEQL._SL246_SX190_CR0,0,190,246_.jpg";
+        p.usdPrice = 69.00f;
+        p.bitpayData = "8adCNuNErqnTa6nHMEFtPz";
+
+        p.keywords = new String[]{"fragance", "man fragance", "lacoste"};
+
+        return p;
+    }
+
+    public static Product amz14() {
+        Product p = new Product();
+
+        p.id = 14;
+        p.name = "Lacoste Sensuelle Eau de Parfum for Women";
+        p.description = "Eau De Lacoste Sensuelle. The spirit of Lacoste in a sensual fragrance that captures the natural intensity of soft floral notes.\n" +
+                "Benefits\n" +
+                "Opens with the tartness of ripe, lush blackcurrant while the base finishes with the sensuality of nougatine accord.";
+        p.thumbnailUrl = "http://ecx.images-amazon.com/images/I/41yotIOLueL._SL246_SX190_CR0,0,190,246_.jpg";
+        p.usdPrice = 82.00f;
+        p.bitpayData = "KoPT9uL93egDubiqksQMzZ";
+
+        p.keywords = new String[]{"fragance", "women fragance", "lacoste"};
+
+        return p;
     }
 }
