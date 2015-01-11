@@ -23,6 +23,9 @@
 
             <div>Price: USD <span class="price">&dollar;$usdPrice</span> & shipping.</div>
 
+            <div class="inStock">In Stock.</div>
+            <div>Ships from $shippingFrom</div>
+
             <div class="description">$description</div>
         </td>
 
@@ -37,6 +40,8 @@
         </td>
     </tr>
 </table>
+
+#include ("com/seller/trade/templates/footer.vm")
 
 </body>
 </html>

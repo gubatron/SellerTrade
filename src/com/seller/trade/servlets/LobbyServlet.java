@@ -37,6 +37,7 @@ import java.io.IOException;
 import java.util.List;
 
 /**
+ * TODO: Add HTTP redirection to peer.
  * Created by gubatron on 1/10/15.
  * Returns a list of known peers to connect to.
  * It will cache the last known list as fetching peers from the DHT

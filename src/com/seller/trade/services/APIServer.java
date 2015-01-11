@@ -74,10 +74,10 @@ public class APIServer { //extends PunsrAbstractServlet implements Handler {
         boolean isLobbyServer = broker.getConfiguration().getBoolean(ConfigurationKeys.ST_IS_LOBBY_SERVER);
 
         SERVLET_MAP = new HashMap<String, STAbstractServlet>();
-        SERVLET_MAP.put("/", isLobbyServer ? new LobbyServlet("/", broker) : new HelloWorldServlet("hello", broker));
-        SERVLET_MAP.put("search", new SearchServlet("search", broker));
-        SERVLET_MAP.put("hello", new HelloWorldServlet("hello", broker));
+        SERVLET_MAP.put("/", isLobbyServer ? new LobbyServlet("/", broker) : new SearchLandingPageServlet("/", broker));
+        SERVLET_MAP.put("search.json", new SearchServlet("search.json", broker));
         SERVLET_MAP.put("product", new ProductPageServlet("product", broker));
+        //SERVLET_MAP.put("hello", new HelloWorldServlet("hello", broker));
     }
 
     @SuppressWarnings("rawtypes")

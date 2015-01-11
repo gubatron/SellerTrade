@@ -6,6 +6,11 @@ body {
     max-height: 100%;
 }
 
+.logoFont {
+    margin-top:150px;
+    font-size:100px!important;
+}
+
 .price {
     font-size: 17px!important;
     line-height: 1.255!important;
@@ -26,7 +31,21 @@ body {
     margin-bottom: 5px;
 }
 
+.inStock {
+    color:#008a00!important;
+    font-size:17px;
+    line:1.255!important;
+    margin:10px 0;
+}
 .description {
     margin:10px 0;
     line-height: 1.255!important;
+}
+
+.searchBox {
+    border: 1px solid #ccc;
+    padding: 5px 10px;
+    margin: 30px 30px;
+    height: 1.25em; width: 60%;
+    font-size:40px;
 }

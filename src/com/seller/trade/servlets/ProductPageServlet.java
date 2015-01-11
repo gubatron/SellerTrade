@@ -47,12 +47,16 @@ public class ProductPageServlet extends STAbstractServlet {
         long id = Long.parseLong(getDefaultParameter(request, "id"));
         Product p = broker.getStoreService().getProduct(id);
 
-        final VelocityContext context = new VelocityContext(getBaseContext());
-        context.put("name", p.name);
-        context.put("description", p.description);
-        context.put("thumbnailUrl", p.thumbnailUrl);
-        context.put("usdPrice", String.valueOf(p.usdPrice));
-        context.put("bitpayData", p.bitpayData);
-        broker.getTemplateService().render("product.vm", context, response.getWriter());
+        if (p != null) {
+            final VelocityContext context = new VelocityContext(getBaseContext());
+            context.put("name", p.name);
+            context.put("description", p.description);
+            context.put("thumbnailUrl", p.thumbnailUrl);
+            context.put("usdPrice", String.valueOf(p.usdPrice));
+            context.put("bitpayData", p.bitpayData);
+            broker.getTemplateService().render("product.vm", context, response.getWriter());
+        } else {
+            response.sendRedirect("/");
+        }
     }
 }
