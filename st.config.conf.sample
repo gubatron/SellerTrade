@@ -1,4 +1,4 @@
-st.version=0.0.1
+st.version=0.0.1a
 st.lib_path=/Users/gubatron/workspace.frostwire/SellerTrade/lib
 st.server_ip=10.0.0.3
 st.server_port=8990
@@ -6,6 +6,7 @@ st.site_name=SellerTrade Soap and Beyond
 st.site_slogan=Spend your Bitcoins and Smell Good
 st.site_description=We bring you the best bathroom products at the best price
 st.site_keywords=bitcoin, p2p, marketplace, soaps, shampoos
+st.shipping_from=Bogot&aacute;, Colombia
 st.site_http_prefix=http://www.seller.trade
 st.site_user_id=562287433
 st.json_pretty_print=true
@@ -13,4 +14,3 @@ st.send_access_control_allow_origin=true
 st.is_lobby_server=false
 # useful for development and testing on local network
 st.use_lan_mappings=false
-st.templates.folder=/path/to/templates
