@@ -2,28 +2,37 @@
 <html>
 <head lang="en">
     <meta charset="UTF-8">
-    <title>$name - SellerTrade: $storeName</title>
+    <title>SellerTrade: $storeName</title>
     <style>
     #include ("com/seller/trade/templates/style.css")
     </style>
 </head>
 
 <body>
-Search results
+#include ("com/seller/trade/templates/search_bar.vm")
 
-<table>
+<div class="productsStats">${results.size()} products found.</div>
+
+<table style="width:654px; margin-left:50px; margin-top:10px; margin-bottom:100px">
     <tbody>
         #foreach( $sr in $results )
         <tr>
-            <td><a href="$sr.Url">$sr.Name</a></td>
-            <td>$sr.Store</td>
-            <td>$sr.Price</td>
+            <td><span class="price">USD $sr.Price</span>  <h3 style="display:inline"><a title="productTitleSearchResult" href="$sr.Url">$sr.Name</a></h3></td>
+        </tr>
+        <tr>
+            <td><span class="bySellerSearchResult" style="padding-bottom: -5px">by <strong>$sr.Store</strong></span></td>
+        </tr>
+        <tr>
+            <td class="descriptionSearchResult">
+                $sr.TrimmableDescription
+            </td>
         </tr>
         #end
     </tbody>
 </table>
 
     #include ("com/seller/trade/templates/footer.vm")
+
 
 </body>
 </html>
