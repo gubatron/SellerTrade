@@ -105,7 +105,7 @@ public final class StoreService {
     private List<SearchResult> queryNode(DHTNode node, String q, int hops) {
         HttpClient httpClient = new JdkHttpClient();
 
-        String url = "http://" + node.getIPAddress() + ":" + node.getHttpPort() + "/search/?q=" + q + "&hops=" + hops;
+        String url = "http://" + node.getIPAddress() + ":" + node.getHttpPort() + "/search.json/?q=" + q + "&hops=" + hops;
         System.out.println(url);
         try {
             String s = httpClient.get(url);

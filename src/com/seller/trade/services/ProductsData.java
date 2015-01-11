@@ -203,6 +203,6 @@ public final class ProductsData {
     }
 
     public static List<Product> set2() {
-        return Arrays.asList(product4(), product5(), product6(), product7());
+        return Arrays.asList(product5(), product6(), product7(), product8());
     }
 }
