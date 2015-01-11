@@ -113,7 +113,7 @@ public final class ProductsData {
         p.usdPrice = 2.99f;
         p.bitpayData = "GQFmxkBnixAgtqiJR4UUzE";
 
-        p.keywords = new String[]{"frostwire", "stickers"};
+        p.keywords = new String[]{"frostwire", "stickers", "sticker"};
 
         return p;
     }
