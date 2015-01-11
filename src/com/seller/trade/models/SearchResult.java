@@ -46,4 +46,12 @@ public class SearchResult {
     public float getPrice() {
         return product.usdPrice;
     }
+
+    public String getTrimmableDescription() {
+        String description = product.description;
+        if (product.description.length() > 160) {
+            description = product.description.substring(0,159) + "...";
+        }
+        return description;
+    }
 }
