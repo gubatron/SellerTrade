@@ -15,7 +15,9 @@ Search results
     <tbody>
         #foreach( $sr in $results )
         <tr>
-            <td>$sr.Name</td>
+            <td><a href="$sr.Url">$sr.Name</a></td>
+            <td>$sr.Store</td>
+            <td>$sr.Price</td>
         </tr>
         #end
     </tbody>

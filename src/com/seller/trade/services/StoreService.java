@@ -33,6 +33,7 @@ import com.seller.trade.core.ConfigurationKeys;
 import com.seller.trade.models.Product;
 import com.seller.trade.models.SearchResult;
 import com.seller.trade.models.SearchResultList;
+import com.seller.trade.models.Store;
 import com.seller.trade.services.dht.DHTNode;
 import com.seller.trade.services.dht.DHTService;
 import com.seller.trade.utils.JsonUtils;
@@ -43,13 +44,17 @@ public final class StoreService {
 
     private final Configuration configuration;
     private final DHTService dhtService;
-    private final String serverIp;
+    private final String serverAddress;
+    private final int serverPort;
+    private final String storeName;
     private final List<Product> products;
 
     public StoreService(Configuration configuration, DHTService dhtService) {
         this.configuration = configuration;
         this.dhtService = dhtService;
-        serverIp = configuration.getString(ConfigurationKeys.ST_SERVER_IP);
+        serverAddress = configuration.getString(ConfigurationKeys.ST_SERVER_IP);
+        serverPort = configuration.getInt(ConfigurationKeys.ST_SERVER_PORT);
+        storeName = configuration.getString(ConfigurationKeys.ST_SITE_NAME);
         products = new ArrayList<Product>();
     }
 
@@ -126,7 +131,7 @@ public final class StoreService {
         List<DHTNode> nodes = dhtService.getNodes(q);
 
         for (DHTNode n : nodes) {
-            if (!serverIp.equals(n.getIPAddress())) {
+            if (!serverAddress.equals(n.getIPAddress())) {
                 results.addAll(queryNode(n, q, hops));
             }
         }
@@ -155,11 +160,16 @@ public final class StoreService {
     private List<SearchResult> queryLocal(String q) {
         List<SearchResult> results = new LinkedList<SearchResult>();
 
+        Store store = new Store();
+        store.address = serverAddress;
+        store.port = serverPort;
+        store.name = storeName;
+
         for (Product p : products) {
             if (matchProduct(p, q)) {
                 SearchResult sr = new SearchResult();
                 sr.product = p;
-                //sr.store =
+                sr.store = store;
                 results.add(sr);
             }
         }

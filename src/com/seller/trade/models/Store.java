@@ -23,11 +23,12 @@
  CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
  WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
+
 package com.seller.trade.models;
 
-/**
- * Created by gubatron on 1/10/15.
- */
 public class Store {
 
+    public String address;
+    public int port;
+    public String name;
 }
