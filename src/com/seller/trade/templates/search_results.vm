@@ -10,6 +10,17 @@
 
 <body>
 Search results
+
+<table>
+    <tbody>
+        #foreach( $sr in $results )
+        <tr>
+            <td>$sr.Name</td>
+        </tr>
+        #end
+    </tbody>
+</table>
+
     #include ("com/seller/trade/templates/footer.vm")
 
 </body>

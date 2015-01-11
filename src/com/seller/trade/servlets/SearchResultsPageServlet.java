@@ -26,23 +26,40 @@
 
 package com.seller.trade.servlets;
 
+import com.seller.trade.models.SearchResult;
 import com.seller.trade.services.ServiceBroker;
+import com.seller.trade.services.StoreService;
 import org.apache.velocity.VelocityContext;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.List;
 
 public final class SearchResultsPageServlet extends STAbstractServlet {
 
+    private final StoreService storeService;
+
     public SearchResultsPageServlet(String urlCommand, ServiceBroker broker) {
         super(urlCommand, broker);
+        storeService = broker.getStoreService();
     }
 
     @Override
     protected void handleUncached(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+
+        String q = getDefaultParameter(request, "q", "");
+
+        if (q == null || q.isEmpty()) {
+            response.sendRedirect("/");
+            return; // fast exit
+        }
+
+        List<SearchResult> results = storeService.query(q, 1);
+
         VelocityContext context = new VelocityContext(getBaseContext());
+        context.put("results", results);
         broker.getTemplateService().render("search_results.vm", context, response.getWriter());
     }
 }

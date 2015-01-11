@@ -23,6 +23,7 @@
  CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
  WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
+
 package com.seller.trade.services;
 
 import com.frostwire.util.HttpClient;
@@ -38,10 +39,8 @@ import com.seller.trade.utils.JsonUtils;
 
 import java.util.*;
 
-/**
- * Created by gubatron on 1/10/15.
- */
-public class StoreService {
+public final class StoreService {
+
     private final Configuration configuration;
     private final DHTService dhtService;
     private final String serverIp;
@@ -54,7 +53,7 @@ public class StoreService {
         products = new ArrayList<Product>();
     }
 
-    //todo: put this on ExecutorService and do it in the background.
+    // TODO: put this on ExecutorService and do it in the background.
     public void announceProducts() {
         final int httpPort = configuration.getInt(ConfigurationKeys.ST_SERVER_PORT);
         loadProducts();
@@ -69,7 +68,8 @@ public class StoreService {
      * whatever e-commerce solution you're already using.
      * <p>
      * For now, hackathon purposes, we'll just load a hardcoded list.
-     * TODO-HACKATHON: Load product list from JSON text file.
+     * <p>
+     * TODO: Load product list from JSON text file.
      */
     private void loadProducts() {
         Product p = new Product();
