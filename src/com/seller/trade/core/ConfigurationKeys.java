@@ -40,6 +40,7 @@ public class ConfigurationKeys {
     public static final String ST_USE_LAN_MAPPINGS= "st.use_lan_mappings";
     public static final String ST_SEND_ACCESS_CONTROL_ALLOW_ORIGIN = "st.send_access_control_allow_origin";
     public static final String ST_SEARCH_HOPS = "st.search.hops";
+    public static final String ST_PRODUCTS_SET = "st.products_set";
 
     protected ConfigurationKeys() {
     }

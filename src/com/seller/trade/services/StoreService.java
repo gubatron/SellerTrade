@@ -55,60 +55,23 @@ public final class StoreService {
         serverAddress = configuration.getString(ConfigurationKeys.ST_SERVER_IP);
         serverPort = configuration.getInt(ConfigurationKeys.ST_SERVER_PORT);
         storeName = configuration.getString(ConfigurationKeys.ST_SITE_NAME);
-        products = new ArrayList<Product>();
+
+        int productsSet = configuration.getInt(ConfigurationKeys.ST_PRODUCTS_SET);
+        if (productsSet == 1) {
+            products = ProductsData.set1();
+        } else if (productsSet == 2) {
+            products = ProductsData.set2();
+        } else {
+            products = new ArrayList<Product>();
+        }
     }
 
-    // TODO: put this on ExecutorService and do it in the background.
     public void announceProducts() {
         final int httpPort = configuration.getInt(ConfigurationKeys.ST_SERVER_PORT);
-        loadProducts();
 
         for (Product p : products) {
             dhtService.announceKeywords(Arrays.asList(p.keywords), httpPort);
         }
-    }
-
-    /**
-     * In the future we'll have here a parametric interface to load products from
-     * whatever e-commerce solution you're already using.
-     * <p>
-     * For now, hackathon purposes, we'll just load a hardcoded list.
-     * <p>
-     * TODO: Load product list from JSON text file.
-     */
-    private void loadProducts() {
-        Product p = new Product();
-        p.id = 1;
-        p.name = "Zip Hoodie 2.0 (Unisex)";
-        p.description = "This is a perfect light weight (7.5oz) Heather Charcoal Hoodie for all occasions.  Offers a fitted body with contrast french terry interior and contrast natural-colored exposed zipper tape. \n" +
-                "\n" +
-                "It's 60% cotton 40% polyester blend french terry, which makes it very soft, yet durable.\n" +
-                "\n" +
-                "The hoodie has a music player/smartphone holder inside right pocket and an inner pocket hole to pass headphones cables inside the hoodie.\n" +
-                "\n" +
-                "Thumbholes at cuffs, metal #5 zipper and twill neck tape in a soft off-white color add extra personality and style.\n" +
-                "\n" +
-                "Each order includes 10 free FrostWire stickers!";
-        p.thumbnailUrl = "http://cdn2.bigcommerce.com/server100/vhyaryj/products/45/images/249/new_hoodie_front__18798.1405366030.300.400.png?c=2";
-        p.usdPrice = 32.99f;
-        p.bitpayData = "wufDvKxFnbOZtFoLlwLi5DIJDONLtcwkyuUWJE++SYu9kELyQaRQR5QBMBk71MAOODOhldNDGV1wT9N2fc4v343l1idoSy0LQsbjqXZSd1hpOGxL4MrztgcVjtJM0OBORkF1Jgtkc/99Wimm/W3EDoF3NNHKdvkWK9moNwFlJMDsMJBxiPpsaZSJZi7nXRJYVnmDa9NtN0mWjWd4nR3d3Q==";
-
-        //these are the keywords we'll use to announce this product on the DHT.
-        p.keywords = new String[]{"hoodie", "frostwire", "sweater", "unisex", "zip hoodie"};
-        products.add(p);
-
-        p = new Product();
-        p.id = 2;
-        p.name = "T-Shirt (Male, Different Colors)";
-        p.description = "Made in the USA, 100% cotton. FrostWire male t-shirt in blue, yellow and charcoal.\n" +
-                "\n" +
-                "Each order includes 10 free FrostWire stickers.";
-        p.thumbnailUrl = "http://cdn2.bigcommerce.com/server100/vhyaryj/products/36/images/208/blue__76605.1405366443.300.400.png?c=2";
-        p.usdPrice = 19.99f;
-        p.bitpayData = "wufDvKxFnbOZtFoLlwLi5DIJDONLtcwkyuUWJE++SYu9kELyQaRQR5QBMBk71MAOGBWs0TzH0wlSXpNGQFGt/uOJzEv13qFkupAqOF6woQga6eZl5IdBqbadrs3JW7mPguD5WkHR2BUDDFqcLmWttcDk48m8zcLr7KkNZDOLl5dHS4uFeacOyyyH8TXhVKYM2+hG/j+lfX3vRUiblcLF9w==";
-        p.keywords = new String[]{"tshirt", "frostwire tshirt", "shirt", "male tshirt"};
-
-        products.add(p);
     }
 
     public List<SearchResult> query(String q, int hops) {
@@ -117,7 +80,7 @@ public final class StoreService {
         List<SearchResult> local = queryLocal(q);
         results.addAll(local);
 
-        if (hops > 0) {
+        if (hops > 0 && !"all".equals(q)) {
             List<SearchResult> remote = queryNodes(q, hops - 1);
             results.addAll(remote);
         }
@@ -179,7 +142,7 @@ public final class StoreService {
 
     private boolean matchProduct(Product p, String q) {
         for (String keyword : p.keywords) {
-            if (q.equals(keyword)) {
+            if (q.equals(keyword) || "all".equals(q)) {
                 return true;
             }
         }
