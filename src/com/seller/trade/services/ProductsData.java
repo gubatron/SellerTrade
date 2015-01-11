@@ -110,7 +110,7 @@ public final class ProductsData {
                 "\n" +
                 "Be sure to take pictures and share them with us on our FrostWire Facebook page or send them by email to contact@frostwire.com. We love to show off all the fun places our stickers travel to!";
         p.thumbnailUrl = "http://cdn2.bigcommerce.com/server100/vhyaryj/products/39/images/206/sticker__87663.1359040458.220.290.jpg";
-        p.usdPrice = 2.99f;
+        p.usdPrice = 0.05f;
         p.bitpayData = "GQFmxkBnixAgtqiJR4UUzE";
 
         p.keywords = new String[]{"frostwire", "stickers", "sticker"};
