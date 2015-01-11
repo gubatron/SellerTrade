@@ -32,7 +32,6 @@ import com.seller.trade.services.dht.DHTService;
 import com.seller.trade.services.dht.DHTServiceImpl;
 import com.seller.trade.utils.Lumberjack;
 
-import java.util.List;
 import java.util.logging.Logger;
 
 /**
@@ -55,10 +54,6 @@ public final class ServiceBroker {
     private final String serverIp;
 
     public ServiceBroker(Configuration configuration) {
-        this(configuration, true, true, true);
-    }
-
-    public ServiceBroker(Configuration configuration, boolean initWordIndexer, boolean initTwitterClient, boolean initFacebookClient) {
         System.out.println("Starting ServiceBroker...");
         this.configuration = configuration;
         LOG = Lumberjack.getLogger(this);
@@ -78,10 +73,6 @@ public final class ServiceBroker {
 
         templateService = new TemplateService(configuration);
         System.out.println("ServiceBroker started.");
-    }
-
-    public String getServerIp() {
-        return serverIp;
     }
 
     public Configuration getConfiguration() {
