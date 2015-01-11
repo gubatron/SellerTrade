@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>$name - SellerTrade: $storeName</title>
+    <meta name="keywords" content="$storeKeywords"/>
+    <style>
+    #include ("com/seller/trade/templates/style.css")
+    </style>
+</head>
+
+<body>
+
+<table>
+    <tr>
+        <!-- picture -->
+        <td valign="top"><img src=$thumbnailUrl"></td>
+
+        <!-- product description -->
+        <td valign="top" width="70%">
+            <h1><span class="productTitle">$name</span></h1>
+            <span class="bySeller">by <strong>$storeName</strong></span>
+
+            <div>Price: USD <span class="price">&dollar;$usdPrice</span> & shipping.</div>
+
+            <div class="description">$description</div>
+        </td>
+
+        <!-- pay button -->
+        <td valign="top">
+            <form action="https://bitpay.com/checkout" method="post" >
+                <input type="hidden" name="action" value="checkout" />
+                <input type="hidden" name="posData" value="" />
+                <input type="hidden" name="data" value="$bitpayData" />
+                <input type="image"  src="https://bitpay.com/img/button1.png" border="0" name="submit" alt="BitPay, the easy way to pay with bitcoins." >
+            </form>
+        </td>
+    </tr>
+</table>
+
+</body>
+</html>

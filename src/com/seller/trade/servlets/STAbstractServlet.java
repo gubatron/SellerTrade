@@ -32,11 +32,14 @@ package com.seller.trade.servlets;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.seller.trade.core.Configuration;
 import com.seller.trade.core.ConfigurationKeys;
 import com.seller.trade.services.APIServer;
 import com.seller.trade.services.ServiceBroker;
 import com.seller.trade.utils.Lumberjack;
 import com.seller.trade.utils.StringUtils;
+import org.apache.velocity.VelocityContext;
+import org.apache.velocity.context.Context;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -246,5 +249,15 @@ public abstract class STAbstractServlet extends HttpServlet {
 
     public final ServiceBroker getBroker() {
         return broker;
+    }
+
+    public Context getBaseContext() {
+        final VelocityContext context = new VelocityContext();
+        Configuration c = broker.getConfiguration();
+        context.put("storeName", c.getString(ConfigurationKeys.ST_SITE_NAME));
+        context.put("storeSlogan", c.getString(ConfigurationKeys.ST_SITE_SLOGAN));
+        context.put("storeDescription", c.getString(ConfigurationKeys.ST_SITE_DESCRIPTION));
+        context.put("storeKeywords", c.getString(ConfigurationKeys.ST_SITE_KEYWORDS));
+        return context;
     }
 }

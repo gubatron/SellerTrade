@@ -28,27 +28,31 @@ package com.seller.trade.servlets;
 
 import com.seller.trade.models.Product;
 import com.seller.trade.services.ServiceBroker;
+import org.apache.velocity.VelocityContext;
 
+import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
 
-public class ProductPageServlet extends WebPageServlet {
+public class ProductPageServlet extends STAbstractServlet {
 
     public ProductPageServlet(String command, ServiceBroker broker) {
-        super(command, broker, "product.html");
+        super(command, broker);
     }
 
     @Override
-    protected String processHtml(HttpServletRequest request, String html) {
+    protected void handleUncached(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 
         long id = Long.parseLong(getDefaultParameter(request, "id"));
         Product p = broker.getStoreService().getProduct(id);
 
-        html = html.replace("$name", p.name);
-        html = html.replace("$description", p.description);
-        html = html.replace("$thumbnailUrl", p.thumbnailUrl);
-        html = html.replace("$usdPrice", String.valueOf(p.usdPrice));
-        html = html.replace("$bitpayData", p.bitpayData);
-
-        return html;
+        final VelocityContext context = new VelocityContext(getBaseContext());
+        context.put("name", p.name);
+        context.put("description", p.description);
+        context.put("thumbnailUrl", p.thumbnailUrl);
+        context.put("usdPrice", String.valueOf(p.usdPrice));
+        context.put("bitpayData", p.bitpayData);
+        broker.getTemplateService().render("product.vm", context, response.getWriter());
     }
 }

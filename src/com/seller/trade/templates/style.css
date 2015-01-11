@@ -1,0 +1,32 @@
+body {
+    color: #111;
+    font-family: Arial,sans-serif;
+    text-rendering: optimizeLegibility;
+    font-size:13px;
+    max-height: 100%;
+}
+
+.price {
+    font-size: 17px!important;
+    line-height: 1.255!important;
+    color: #b12704!important;
+    margin-bottom:10px;
+}
+
+.productTitle {
+     font-size:21px!important;
+     line-height: 1.3!important;
+}
+
+.bySeller {
+    line-height: 19px;
+    display:block;
+    padding-bottom: 5px;
+    border-bottom:1px solid #ccc;
+    margin-bottom: 5px;
+}
+
+.description {
+    margin:10px 0;
+    line-height: 1.255!important;
+}
