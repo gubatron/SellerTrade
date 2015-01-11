@@ -130,7 +130,7 @@ public final class ProductsData {
                 "Inner pocket hole to pass headphones cables inside the hoodie.\n" +
                 "\n" +
                 "Each order includes 10 free FrostWire stickers.";
-        p.thumbnailUrl = "http://cdn2.bigcommerce.com/server100/vhyaryj/products/39/images/206/sticker__87663.1359040458.220.290.jpg";
+        p.thumbnailUrl = "http://cdn2.bigcommerce.com/server100/vhyaryj/products/38/images/205/hoodie_front_2__50007.1359040277.220.290.png";
         p.usdPrice = 19.99f;
         p.bitpayData = "8inBRtF4viiaTpwubk8hCr";
 
