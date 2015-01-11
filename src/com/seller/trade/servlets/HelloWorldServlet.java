@@ -35,10 +35,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-/**
- * Created by gubatron on 1/10/15.
- */
-public class HelloWorldServlet extends STAbstractServlet {
+public final class HelloWorldServlet extends STAbstractServlet {
+
     public HelloWorldServlet(String command, ServiceBroker broker) {
         super(command, broker);
     }
@@ -48,7 +46,7 @@ public class HelloWorldServlet extends STAbstractServlet {
         response.setContentType("text/html");
         response.setStatus(HttpServletResponse.SC_OK);
 
-        final VelocityContext context = new VelocityContext();
+        VelocityContext context = new VelocityContext();
         context.put("siteName", broker.getConfiguration().getString(ConfigurationKeys.ST_SITE_NAME));
 
         broker.getTemplateService().render("hello.vm", context, response.getWriter());

@@ -35,7 +35,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-public class ProductPageServlet extends STAbstractServlet {
+public final class ProductPageServlet extends STAbstractServlet {
 
     public ProductPageServlet(String command, ServiceBroker broker) {
         super(command, broker);
@@ -48,7 +48,7 @@ public class ProductPageServlet extends STAbstractServlet {
         Product p = broker.getStoreService().getProduct(id);
 
         if (p != null) {
-            final VelocityContext context = new VelocityContext(getBaseContext());
+            VelocityContext context = new VelocityContext(getBaseContext());
             context.put("name", p.name);
             context.put("description", p.description);
             context.put("thumbnailUrl", p.thumbnailUrl);
