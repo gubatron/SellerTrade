@@ -16,7 +16,7 @@
 <div style="margin-bottom: 50px; margin-top:-50px">Buy and sell anything from anyone in the world using Bitcoin</div><br/>
 
 
-    <form action="/searchPage" method="get">
+    <form action="/searchResults/" method="get">
         <input type="text" spellcheck="false" class="searchBox" name="q" autofocus/>
     </form>
 

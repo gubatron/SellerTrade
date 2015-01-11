@@ -34,18 +34,15 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-/**
- * The home page on non-lobby servers. A simple, google-like search form.
- */
-public final class SearchLandingPageServlet extends STAbstractServlet {
+public final class SearchResultsPageServlet extends STAbstractServlet {
 
-    public SearchLandingPageServlet(String urlCommand, ServiceBroker broker) {
+    public SearchResultsPageServlet(String urlCommand, ServiceBroker broker) {
         super(urlCommand, broker);
     }
 
     @Override
     protected void handleUncached(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         VelocityContext context = new VelocityContext(getBaseContext());
-        broker.getTemplateService().render("search_landing.vm", context, response.getWriter());
+        broker.getTemplateService().render("search_results.vm", context, response.getWriter());
     }
 }
