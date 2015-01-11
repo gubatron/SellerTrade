@@ -1,7 +1,7 @@
 ## SellerTrade
 The world's simplest, legal, p2p Bitcoin Marketplace.
 
-_Inspired by the OpenBazaar project ideals we'll be hacking a server-sided seller p2p marketplace._
+_Inspired by the [OpenBazaar project](http://www.openbazaar.org) ideals we've built a simple server-sided p2p seller marketplace._
 
 ## Why?
 
@@ -49,4 +49,16 @@ Bitcoin integration is done using Bitpay's API, as we still live in a fiat world
 Store owners are required to have a Bitpay account by design, this means seller anonymity and illegal goods are not a features of this network.
 
 It is our goal to connect sellers from every country in the world to put together the longest tail of product offering the internet has ever seen, and there's nothing Amazon, ebay and Alibaba will be able to do about it, unless they integrate with Bitcoin.
+
+## Technology Requirements
+### Seller
+- Java 1.7 or higher.
+- frostwire-jlibtorrent
+- One machine hosting Bootstrap DHT server, and HTTP redirector to announced peers.
+- Jetty (or any servlet container)
+- Server with public IP address, one open TCP port (preferably proxied via a web server's port 80) and all UDP ports open on the firewall.
+
+### Buyer
+- A Web browser.
+- A Bitcoin wallet.
 
