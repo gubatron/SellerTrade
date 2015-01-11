@@ -43,19 +43,19 @@ import java.util.*;
  */
 public class StoreService {
     private final Configuration configuration;
-    private final ServiceBroker broker;
-
+    private final DHTService dhtService;
+    private final String serverIp;
     private final List<Product> products;
 
-    public StoreService(Configuration configuration, ServiceBroker broker) {
+    public StoreService(Configuration configuration, DHTService dhtService) {
         this.configuration = configuration;
-        this.broker = broker;
+        this.dhtService = dhtService;
+        serverIp = configuration.getString(ConfigurationKeys.ST_SERVER_IP);
         products = new ArrayList<Product>();
     }
 
     //todo: put this on ExecutorService and do it in the background.
     public void announceProducts() {
-        final DHTService dhtService = broker.getDhtService();
         final int httpPort = configuration.getInt(ConfigurationKeys.ST_SERVER_PORT);
         loadProducts();
 
@@ -123,10 +123,10 @@ public class StoreService {
     private List<SearchResult> queryNodes(String q, int hops) {
         List<SearchResult> results = new LinkedList<SearchResult>();
 
-        List<DHTNode> nodes = broker.getDhtService().getNodes(q);
+        List<DHTNode> nodes = dhtService.getNodes(q);
 
         for (DHTNode n : nodes) {
-            if (!broker.getServerIp().equals(n.getIPAddress())) {
+            if (!serverIp.equals(n.getIPAddress())) {
                 results.addAll(queryNode(n, q, hops));
             }
         }

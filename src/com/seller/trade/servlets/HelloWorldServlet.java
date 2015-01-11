@@ -28,6 +28,7 @@ package com.seller.trade.servlets;
 
 import com.seller.trade.core.ConfigurationKeys;
 import com.seller.trade.services.ServiceBroker;
+import org.apache.velocity.VelocityContext;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -46,6 +47,10 @@ public class HelloWorldServlet extends STAbstractServlet {
     protected void handleUncached(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         response.setContentType("text/html");
         response.setStatus(HttpServletResponse.SC_OK);
-        response.getWriter().println("Hello World: " + broker.getConfiguration().getString(ConfigurationKeys.ST_SITE_NAME));
+
+        final VelocityContext context = new VelocityContext();
+        context.put("siteName", broker.getConfiguration().getString(ConfigurationKeys.ST_SITE_NAME));
+
+        broker.getTemplateService().render("hello.vm", context, response.getWriter());
     }
 }

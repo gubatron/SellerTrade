@@ -20,6 +20,11 @@
                 </javac>
 
                 <!-- copy resources -->
+		<mkdir dir="./bin/com/seller/trade/templates/" />
+		<copy todir="./bin/com/seller/trade/templates/">
+		    <fileset dir="./src/com/seller/trade/templates" />
+		</copy>
+
                 <!-- jar -->
                 <jar jarfile="sellertrade.jar" level="9">
                   <fileset dir="bin" />

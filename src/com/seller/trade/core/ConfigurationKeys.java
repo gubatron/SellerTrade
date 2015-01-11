@@ -30,6 +30,7 @@ public class ConfigurationKeys {
     public static final String ST_VERSION = "st.version";
     public static final String ST_SERVER_PORT = "st.server_port";
     public static final String ST_SITE_NAME = "st.site_name";
+    public static final String ST_TEMPLATES_FOLDER = "st.templates.folder";
     public static final String ST_SITE_HTTP_PREFIX = "st.site_http_prefix";
     public static final String ST_SITE_SLOGAN = "st.site_slogan";
     public static final String ST_SITE_DESCRIPTION = "st.site_description";

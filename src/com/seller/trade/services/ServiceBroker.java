@@ -50,6 +50,7 @@ public final class ServiceBroker {
     private final Configuration configuration;
     private final DHTService dhtService;
     private final StoreService storeService;
+    private final TemplateService templateService;
 
     private final String serverIp;
 
@@ -62,12 +63,9 @@ public final class ServiceBroker {
         this.configuration = configuration;
         LOG = Lumberjack.getLogger(this);
         serverIp = configuration.getString(ConfigurationKeys.ST_SERVER_IP);
-        System.out.println("ServiceBroker started.");
-
         int tcpPort = configuration.getInt(ConfigurationKeys.ST_SERVER_PORT);
 
         dhtService = new DHTServiceImpl(configuration.getBoolean(ConfigurationKeys.ST_USE_LAN_MAPPINGS));
-
         if (!configuration.getBoolean(ConfigurationKeys.ST_IS_LOBBY_SERVER)) {
             System.out.println("Announcing myself, not lobby.");
             dhtService.announceNode(tcpPort);
@@ -75,8 +73,11 @@ public final class ServiceBroker {
             System.out.println("Not announcing myself, I'm a lobby server....");
         }
 
-        storeService = new StoreService(configuration, this); //TODO: Make this without passing 'this'
+        storeService = new StoreService(configuration, dhtService);
         storeService.announceProducts();
+
+        templateService = new TemplateService(configuration);
+        System.out.println("ServiceBroker started.");
     }
 
     public String getServerIp() {
@@ -90,4 +91,6 @@ public final class ServiceBroker {
     public DHTService getDhtService() { return dhtService; }
 
     public StoreService getStoreService() { return storeService; }
+
+    public TemplateService getTemplateService() { return templateService; }
 }
