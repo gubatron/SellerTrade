@@ -258,6 +258,8 @@ public abstract class STAbstractServlet extends HttpServlet {
         context.put("storeSlogan", c.getString(ConfigurationKeys.ST_SITE_SLOGAN));
         context.put("storeDescription", c.getString(ConfigurationKeys.ST_SITE_DESCRIPTION));
         context.put("storeKeywords", c.getString(ConfigurationKeys.ST_SITE_KEYWORDS));
+        context.put("shippingFrom", c.getString(ConfigurationKeys.ST_SHIPPING_FROM));
+        context.put("version", c.getString(ConfigurationKeys.ST_VERSION));
         return context;
     }
 }
