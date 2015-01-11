@@ -44,6 +44,10 @@ public class ProductPageServlet extends WebPageServlet {
         Product p = broker.getStoreService().getProduct(id);
 
         html = html.replace("$name", p.name);
+        html = html.replace("$description", p.description);
+        html = html.replace("$thumbnailUrl", p.thumbnailUrl);
+        html = html.replace("$usdPrice", String.valueOf(p.usdPrice));
+        html = html.replace("$bitpayData", p.bitpayData);
 
         return html;
     }

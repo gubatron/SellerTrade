@@ -38,6 +38,7 @@ public class Product {
      * No price volatility anxiety, thank you BitPay.
      */
     public float usdPrice;
+    public String bitpayData;
 
     // TODO: list of pictures urls, for more product pictures.
 }

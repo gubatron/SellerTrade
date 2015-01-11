@@ -86,6 +86,7 @@ public class StoreService {
                 "Each order includes 10 free FrostWire stickers!";
         p.thumbnailUrl = "http://cdn2.bigcommerce.com/server100/vhyaryj/products/45/images/249/new_hoodie_front__18798.1405366030.300.400.png?c=2";
         p.usdPrice = 32.99f;
+        p.bitpayData = "wufDvKxFnbOZtFoLlwLi5DIJDONLtcwkyuUWJE++SYu9kELyQaRQR5QBMBk71MAOODOhldNDGV1wT9N2fc4v343l1idoSy0LQsbjqXZSd1hpOGxL4MrztgcVjtJM0OBORkF1Jgtkc/99Wimm/W3EDoF3NNHKdvkWK9moNwFlJMDsMJBxiPpsaZSJZi7nXRJYVnmDa9NtN0mWjWd4nR3d3Q==";
 
         //these are the keywords we'll use to announce this product on the DHT.
         p.keywords = new String[]{"hoodie", "frostwire", "sweater", "unisex", "zip hoodie"};
@@ -99,6 +100,7 @@ public class StoreService {
                 "Each order includes 10 free FrostWire stickers.";
         p.thumbnailUrl = "http://cdn2.bigcommerce.com/server100/vhyaryj/products/36/images/208/blue__76605.1405366443.300.400.png?c=2";
         p.usdPrice = 19.99f;
+        p.bitpayData = "wufDvKxFnbOZtFoLlwLi5DIJDONLtcwkyuUWJE++SYu9kELyQaRQR5QBMBk71MAOGBWs0TzH0wlSXpNGQFGt/uOJzEv13qFkupAqOF6woQga6eZl5IdBqbadrs3JW7mPguD5WkHR2BUDDFqcLmWttcDk48m8zcLr7KkNZDOLl5dHS4uFeacOyyyH8TXhVKYM2+hG/j+lfX3vRUiblcLF9w==";
         p.keywords = new String[]{"tshirt", "frostwire tshirt", "shirt", "male tshirt"};
 
         products.add(p);
