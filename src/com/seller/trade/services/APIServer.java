@@ -81,8 +81,9 @@ public class APIServer { //extends PunsrAbstractServlet implements Handler {
 
         SERVLET_MAP = new HashMap<String, STAbstractServlet>();
         SERVLET_MAP.put("/", isLobbyServer ? new LobbyServlet("/", broker) : new HelloWorldServlet("hello", broker));
-        SERVLET_MAP.put("search",  new SearchServlet("search", broker));
-        SERVLET_MAP.put("hello",  new HelloWorldServlet("hello", broker));
+        SERVLET_MAP.put("search", new SearchServlet("search", broker));
+        SERVLET_MAP.put("hello", new HelloWorldServlet("hello", broker));
+        SERVLET_MAP.put("test", new WebPageServlet("test", broker, "test.html"));
     }
 
     @SuppressWarnings("rawtypes")
