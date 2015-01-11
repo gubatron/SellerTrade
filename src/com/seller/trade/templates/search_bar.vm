@@ -1,0 +1,7 @@
+<div class="logoFontHeader" onclick="location.href='/'">Seller.<span style="color:cornflowerblue">Trade</span></div>
+
+<span style="margin:0 0; padding:0 0;line-height:1.25em!important;"><strong>Search</strong></span>
+
+<form class="searchBoxHeaderForm" action="/searchResults/" method="get">
+    <input type="text" spellcheck="false" class="searchBoxHeader" name="q" autofocus/>
+</form>

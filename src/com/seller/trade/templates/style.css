@@ -11,6 +11,12 @@ body {
     font-size:100px!important;
 }
 
+.logoFontHeader {
+    margin-top:15px;
+    font-size:30px!important;
+    cursor: pointer;
+}
+
 .price {
     font-size: 17px!important;
     line-height: 1.255!important;
@@ -42,10 +48,21 @@ body {
     line-height: 1.255!important;
 }
 
-.searchBox {
+.searchBox, .searchBoxHeader {
     border: 1px solid #ccc;
     padding: 5px 10px;
     margin: 30px 30px;
     height: 1.25em; width: 60%;
     font-size:40px;
+}
+
+.searchBoxHeaderForm {
+  display:inline;
+}
+
+.searchBoxHeader {
+    padding:0 0 0 8px;
+    font-size:15px;
+    height:23px;
+    margin:10px 10px;
 }

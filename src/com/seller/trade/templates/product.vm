@@ -10,8 +10,9 @@
 </head>
 
 <body>
+#include ("com/seller/trade/templates/search_bar.vm")
 
-<table>
+<table style="border-bottom:1px solid #ccc; margin-bottom: 5px;">
     <tr>
         <!-- picture -->
         <td valign="top"><img src=$thumbnailUrl"></td>
