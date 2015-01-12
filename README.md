@@ -3,6 +3,8 @@ The world's simplest, legal, p2p Bitcoin Marketplace.
 
 Created by Alden Torres and Angel Leon.
 
+[Screenshots](http://imgur.com/a/h2jb3)
+
 _Inspired by the [OpenBazaar project](http://www.openbazaar.org) ideals we've built a simple server-sided p2p Bitcoin marketplace that harnesses the indexing and routing powers of the BitTorrent DHT._
 
 ## Why?
