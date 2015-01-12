@@ -1,4 +1,4 @@
-## SellerTrade
+## Seller.Trade
 The world's simplest, legal, p2p Bitcoin Marketplace.
 
 Created by Alden Torres and Angel Leon.
