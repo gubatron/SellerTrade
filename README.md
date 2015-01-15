@@ -7,6 +7,8 @@ Created by Alden Torres and Angel Leon.
 
 _Inspired by the [OpenBazaar project](http://www.openbazaar.org) ideals we've built a simple server-sided p2p Bitcoin marketplace that harnesses the indexing and routing powers of the BitTorrent DHT._
 
+_Winner of the 2nd place at the Miami Bitcoin Hackathon 2015_
+
 ## Why?
 
 Hello judges, participants and organizers of the Miami Bitcoin Hackathon.
