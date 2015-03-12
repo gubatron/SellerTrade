@@ -11,7 +11,7 @@ import java.util.Map;
  * @author gubatron
  * @author aldenml
  */
-public class TorrentAlertAdapter implements AlertListener {
+public abstract class TorrentAlertAdapter implements AlertListener {
 
     private static final Logger LOG = Logger.getLogger(TorrentAlertAdapter.class);
 
@@ -125,6 +125,9 @@ public class TorrentAlertAdapter implements AlertListener {
     public void stateChanged(StateChangedAlert alert) {
     }
 
+    public void sessionStats(SessionStatsAlert alert) {
+    }
+
     public void dhtReply(DhtReplyAlert alert) {
     }
 
@@ -204,6 +207,12 @@ public class TorrentAlertAdapter implements AlertListener {
     }
 
     public void unwantedBlock(UnwantedBlockAlert alert) {
+    }
+
+    public void torrentLog(TorrentLogAlert alert) {
+    }
+
+    public void peerLog(PeerLogAlert alert) {
     }
 
     public void torrentPrioritize(TorrentPrioritizeAlert alert) {

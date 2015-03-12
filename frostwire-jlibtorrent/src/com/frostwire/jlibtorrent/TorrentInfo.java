@@ -21,8 +21,9 @@ public final class TorrentInfo {
     }
 
     /**
-     * load the torrent file and decode it inside
-     * the constructor, for convenience. This might not be the most suitable for applications that
+     * Load the torrent file and decode it inside the constructor, for convenience.
+     * <p/>
+     * This might not be the most suitable for applications that
      * want to be able to report detailed errors on what might go wrong.
      *
      * @param torrent
@@ -36,8 +37,10 @@ public final class TorrentInfo {
     }
 
     /**
-     * The file_storage object contains the information on how to map the pieces to
-     * files. It is separated from the torrent_info object because when creating torrents
+     * The {@link com.frostwire.jlibtorrent.FileStorage} object contains the information on
+     * how to map the pieces to files.
+     * <p/>
+     * It is separated from the torrent_info object because when creating torrents
      * a storage object needs to be created without having a torrent file. When renaming files
      * in a storage, the storage needs to make its own copy of the file_storage in order
      * to make its mapping differ from the one in the torrent file.
@@ -224,20 +227,21 @@ public final class TorrentInfo {
      * @return
      */
     public long getTotalSize() {
-        return this.ti.total_size();
+        return ti.total_size();
     }
 
     /**
      * The number of byte for each piece.
      * <p/>
-     * The difference between piece_size() and piece_length() is that piece_size() takes
-     * the piece index as argument and gives you the exact size of that piece. It will always
-     * be the same as piece_length() except in the case of the last piece, which may be smaller.
+     * The difference between {@link #getPieceSize(int)} and {@link #getPieceLength()} is that
+     * {@link #getPieceSize(int)} takes the piece index as argument and gives you the exact size
+     * of that piece. It will always be the same as {@link #getPieceLength()} except in the case
+     * of the last piece, which may be smaller.
      *
      * @return
      */
     public int getPieceLength() {
-        return this.ti.piece_length();
+        return ti.piece_length();
     }
 
     /**
@@ -269,13 +273,56 @@ public final class TorrentInfo {
     }
 
     /**
-     * If you need index-access to files you can use the ``num_files()`` and ``file_at()``
-     * to access files using indices.
+     * This function will map a piece index, a byte offset within that piece and
+     * a size (in bytes) into the corresponding files with offsets where that data
+     * for that piece is supposed to be stored.
+     *
+     * @param piece
+     * @param offset
+     * @param size
+     * @return
+     * @see com.frostwire.jlibtorrent.FileSlice
+     */
+    public ArrayList<FileSlice> mapBlock(int piece, long offset, int size) {
+        file_slice_vector v = ti.map_block(piece, offset, size);
+        int vSize = (int) v.size();
+
+        ArrayList<FileSlice> l = new ArrayList<FileSlice>(vSize);
+        for (int i = 0; i < vSize; i++) {
+            l.add(new FileSlice(v.get(i)));
+        }
+
+        return l;
+    }
+
+    /**
+     * This function will map a range in a specific file into a range in the torrent.
+     * The {@code offset} parameter is the offset in the file, given in bytes, where
+     * 0 is the start of the file.
+     * <p/>
+     * The input range is assumed to be valid within the torrent. {@code offset + size}
+     * is not allowed to be greater than the file size. {@code index}
+     * must refer to a valid file, i.e. it cannot be {@code >= getNumFiles()}.
+     *
+     * @param file
+     * @param offset
+     * @param size
+     * @return
+     * @see com.frostwire.jlibtorrent.PeerRequest
+     */
+    public PeerRequest mapFile(int file, long offset, int size) {
+        return new PeerRequest(ti.map_file(file, offset, size));
+    }
+
+    /**
+     * Returns the SSL root certificate for the torrent, if it is an SSL
+     * torrent. Otherwise returns an empty string. The certificate is
+     * the public certificate in x509 format.
      *
      * @return
      */
-    public FileEntry getFileAt(int index) {
-        return new FileEntry(ti.file_at(index));
+    public String getSslCert() {
+        return ti.ssl_cert();
     }
 
     /**
@@ -393,12 +440,12 @@ public final class TorrentInfo {
     }
 
     public static TorrentInfo bdecode(byte[] data) {
-        lazy_entry e = new lazy_entry();
+        bdecode_node n = new bdecode_node();
         error_code ec = new error_code();
-        int ret = lazy_entry.bdecode(Vectors.bytes2char_vector(data), e, ec);
+        int ret = bdecode_node.bdecode(Vectors.bytes2char_vector(data), n, ec);
 
         if (ret == 0) {
-            return new TorrentInfo(new torrent_info(e));
+            return new TorrentInfo(new torrent_info(n));
         } else {
             throw new IllegalArgumentException("Can't decode data");
         }

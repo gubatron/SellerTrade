@@ -1,8 +1,6 @@
 package com.frostwire.jlibtorrent;
 
-import com.frostwire.jlibtorrent.alerts.Alert;
-import com.frostwire.jlibtorrent.alerts.DhtImmutableItemAlert;
-import com.frostwire.jlibtorrent.alerts.GenericAlert;
+import com.frostwire.jlibtorrent.alerts.*;
 import com.frostwire.jlibtorrent.swig.*;
 import com.frostwire.jlibtorrent.swig.session.options_t;
 
@@ -32,15 +30,15 @@ public final class Session {
 
     private static final Logger LOG = Logger.getLogger(Session.class);
 
-    private static final long REQUEST_STATUS_RESOLUTION_MILLIS = 500;
+    private static final long REQUEST_STATS_RESOLUTION_MILLIS = 1000;
     private static final long ALERTS_LOOP_WAIT_MILLIS = 500;
 
     private static final Map<Integer, CastAlertFunction> CAST_TABLE = buildCastAlertTable();
 
     private final session s;
 
-    private long lastStatusRequestTime;
-    private SessionStatus lastStatus;
+    private long lastStatsRequestTime;
+    private SessionStats lastStats;
 
     private final SparseArray<ArrayList<AlertListener>> listeners;
     private final SparseArray<AlertListener[]> listenerSnapshots;
@@ -52,6 +50,8 @@ public final class Session {
         int alert_mask = alert.category_t.all_categories.swigValue();
 
         this.s = new session(print.getSwig(), prange.to_int_int_pair(), iface, flags, alert_mask);
+
+        this.lastStats = new SessionStats(0, null);
 
         this.listeners = new SparseArray<ArrayList<AlertListener>>();
         this.listenerSnapshots = new SparseArray<AlertListener[]>();
@@ -189,27 +189,15 @@ public final class Session {
     }
 
     /**
-     * You add torrents through the add_torrent() function where you give an
-     * object with all the parameters. The add_torrent() overloads will block
-     * until the torrent has been added (or failed to be added) and returns
-     * an error code and a torrent_handle. In order to add torrents more
-     * efficiently, consider using async_add_torrent() which returns
+     * In order to add torrents more efficiently, consider using this which returns
      * immediately, without waiting for the torrent to add. Notification of
-     * the torrent being added is sent as add_torrent_alert.
-     * <p/>
-     * The overload that does not take an error_code throws an exception on
-     * error and is not available when building without exception support.
-     * The torrent_handle returned by add_torrent() can be used to retrieve
-     * information about the torrent's progress, its peers etc. It is also
-     * used to abort a torrent.
+     * the torrent being added is sent as {@link com.frostwire.jlibtorrent.alerts.AddTorrentAlert}.
      * <p/>
      * If the torrent you are trying to add already exists in the session (is
      * either queued for checking, being checked or downloading)
      * ``add_torrent()`` will throw libtorrent_exception which derives from
      * ``std::exception`` unless duplicate_is_error is set to false. In that
      * case, add_torrent() will return the handle to the existing torrent.
-     * <p/>
-     * all torrent_handles must be destructed before the session is destructed!
      *
      * @param ti
      * @param saveDir
@@ -312,6 +300,17 @@ public final class Session {
     }
 
     /**
+     * Applies the settings specified by the settings_pack ``sp``. This is an
+     * asynchronous operation that will return immediately and actually apply
+     * the settings to the main thread of libtorrent some time later.
+     *
+     * @param sp
+     */
+    public void applySettings(SettingsPack sp) {
+        s.apply_settings(sp.getSwig());
+    }
+
+    /**
      * In case you want to destruct the session asynchrounously, you can
      * request a session destruction proxy. If you don't do this, the
      * destructor of the session object will block while the trackers are
@@ -383,89 +382,6 @@ public final class Session {
     }
 
     /**
-     * Returns session wide-statistics and status.
-     * <p/>
-     * It is important not to call this method for each field in the status
-     * for performance reasons.
-     *
-     * @return
-     */
-    public SessionStatus getStatus(boolean force) {
-        long now = System.currentTimeMillis();
-        if (force || (now - lastStatusRequestTime) >= REQUEST_STATUS_RESOLUTION_MILLIS) {
-            lastStatusRequestTime = now;
-            lastStatus = new SessionStatus(s.status());
-        }
-
-        return lastStatus;
-    }
-
-    /**
-     * Returns session wide-statistics and status.
-     *
-     * @return
-     */
-    public SessionStatus getStatus() {
-        return this.getStatus(false);
-    }
-
-    /**
-     * The session settings and the packet encryption settings
-     * respectively. See session_settings and pe_settings for more
-     * information on available options.
-     *
-     * @return
-     */
-    public SessionSettings getSettings() {
-        return new SessionSettings(s.settings());
-    }
-
-    /**
-     * Sets the session settings and the packet encryption settings
-     * respectively. See session_settings and pe_settings for more
-     * information on available options.
-     *
-     * @param settings
-     */
-    public void setSettings(SessionSettings settings) {
-        s.set_settings(settings.getSwig());
-    }
-
-    /**
-     * These functions sets and queries the proxy settings to be used for the
-     * session.
-     * <p/>
-     * For more information on what settings are available for proxies, see
-     * proxy_settings. If the session is not in anonymous mode, proxies that
-     * aren't working or fail, will automatically be disabled and packets
-     * will flow without using any proxy. If you want to enforce using a
-     * proxy, even when the proxy doesn't work, enable anonymous_mode in
-     * session_settings.
-     *
-     * @return
-     */
-    public ProxySettings getProxy() {
-        return new ProxySettings(s.proxy());
-    }
-
-    /**
-     * These functions sets and queries the proxy settings to be used for the
-     * session.
-     * <p/>
-     * For more information on what settings are available for proxies, see
-     * proxy_settings. If the session is not in anonymous mode, proxies that
-     * aren't working or fail, will automatically be disabled and packets
-     * will flow without using any proxy. If you want to enforce using a
-     * proxy, even when the proxy doesn't work, enable anonymous_mode in
-     * session_settings.
-     *
-     * @param settings
-     */
-    public void setProxy(ProxySettings settings) {
-        s.set_proxy(settings.getSwig());
-    }
-
-    /**
      * Loads and saves all session settings, including dht_settings,
      * encryption settings and proxy settings. ``save_state`` writes all keys
      * to the ``entry`` that's passed in, which needs to either not be
@@ -503,15 +419,60 @@ public final class Session {
      */
     public void loadState(byte[] data) {
         char_vector buffer = Vectors.bytes2char_vector(data);
-        lazy_entry e = new lazy_entry();
+        bdecode_node n = new bdecode_node();
         error_code ec = new error_code();
-        int ret = lazy_entry.bdecode(buffer, e, ec);
+        int ret = bdecode_node.bdecode(buffer, n, ec);
 
         if (ret == 0) {
-            s.load_state(e);
+            s.load_state(n);
         } else {
             LOG.error("failed to decode torrent: " + ec.message());
         }
+    }
+
+    /**
+     * This functions instructs the session to post the state_update_alert,
+     * containing the status of all torrents whose state changed since the
+     * last time this function was called.
+     * <p/>
+     * Only torrents who has the state subscription flag set will be
+     * included. This flag is on by default. See add_torrent_params.
+     * the ``flags`` argument is the same as for torrent_handle::status().
+     * see torrent_handle::status_flags_t.
+     *
+     * @param flags
+     */
+    public void postTorrentUpdates(TorrentHandle.StatusFlags flags) {
+        s.post_torrent_updates(flags.getSwig());
+    }
+
+    /**
+     * This functions instructs the session to post the state_update_alert,
+     * containing the status of all torrents whose state changed since the
+     * last time this function was called.
+     * <p/>
+     * Only torrents who has the state subscription flag set will be
+     * included.
+     */
+    public void postTorrentUpdates() {
+        s.post_torrent_updates();
+    }
+
+    /**
+     * This function will post a {@link com.frostwire.jlibtorrent.alerts.SessionStatsAlert} object, containing a
+     * snapshot of the performance counters from the internals of libtorrent.
+     * To interpret these counters, query the session via
+     * session_stats_metrics().
+     */
+    public void postSessionStats() {
+        s.post_session_stats();
+    }
+
+    /**
+     * This will cause a dht_stats_alert to be posted.
+     */
+    public void postDHTStats() {
+        s.post_dht_stats();
     }
 
     /**
@@ -587,13 +548,6 @@ public final class Session {
     // ``is_dht_running()`` returns true if the DHT support has been started
     // and false
     // otherwise.
-    public void startDHT() {
-        s.start_dht();
-    }
-
-    public void stopDHT() {
-        s.stop_dht();
-    }
 
     void setDHTSettings(DHTSettings settings) {
         s.set_dht_settings(settings.getSwig());
@@ -779,46 +733,6 @@ public final class Session {
     }
 
     /**
-     * Starts and stops Local Service Discovery. This service will broadcast
-     * the infohashes of all the non-private torrents on the local network to
-     * look for peers on the same swarm within multicast reach.
-     * <p/>
-     * It is turned off by default.
-     */
-    public void startLSD() {
-        s.start_lsd();
-    }
-
-    /**
-     * Starts and stops Local Service Discovery. This service will broadcast
-     * the infohashes of all the non-private torrents on the local network to
-     * look for peers on the same swarm within multicast reach.
-     * <p/>
-     * It is turned off by default.
-     */
-    public void stopLSD() {
-        s.stop_lsd();
-    }
-
-    /**
-     * Starts the UPnP service. When started, the listen port and
-     * the DHT port are attempted to be forwarded on local UPnP router
-     * devices.
-     */
-    public void startUPnP() {
-        s.start_upnp();
-    }
-
-    /**
-     * Stops the UPnP service. When started, the listen port and
-     * the DHT port are attempted to be forwarded on local UPnP router
-     * devices.
-     */
-    public void stopUPnP() {
-        s.stop_upnp();
-    }
-
-    /**
      * add_port_mapping adds a port forwarding on UPnP and/or NAT-PMP,
      * whichever is enabled. The return value is a handle referring to the
      * port mapping that was just created. Pass it to delete_port_mapping()
@@ -837,22 +751,16 @@ public final class Session {
         s.delete_port_mapping(handle);
     }
 
-    /**
-     * Starts the NAT-PMP service. When started, the listen port
-     * and the DHT port are attempted to be forwarded on the router through
-     * NAT-PMP.
-     */
-    public void startNATPMP() {
-        s.start_natpmp();
+    public SessionStats getStats() {
+        return lastStats;
     }
 
-    /**
-     * Stops the NAT-PMP service. When started, the listen port
-     * and the DHT port are attempted to be forwarded on the router through
-     * NAT-PMP.
-     */
-    public void stopNATPMP() {
-        s.stop_natpmp();
+    public SessionSettings getSettings() {
+        return new SessionSettings(s.get_settings());
+    }
+
+    public void setPieceHashes(String id, create_torrent t, String p, error_code ec) {
+        s.set_piece_hashes(id, t, p, ec);
     }
 
     @Override
@@ -909,6 +817,8 @@ public final class Session {
             try {
                 byte[] data = Utils.readFileToByteArray(resumeFile);
                 p.setResume_data(Vectors.bytes2char_vector(data));
+
+                flags |= add_torrent_params.flags_t.flag_use_resume_save_path.swigValue();
             } catch (Throwable e) {
                 LOG.warn("Unable to set resume data", e);
             }
@@ -931,7 +841,7 @@ public final class Session {
             public void run() {
                 alert_ptr_deque deque = new alert_ptr_deque();
 
-                time_duration max_wait = libtorrent.milliseconds(ALERTS_LOOP_WAIT_MILLIS);
+                high_resolution_clock.duration max_wait = libtorrent.to_milliseconds(ALERTS_LOOP_WAIT_MILLIS);
 
                 while (running) {
                     alert ptr = s.wait_for_alert(max_wait);
@@ -945,12 +855,20 @@ public final class Session {
 
                             Alert<?> alert = null;
 
-                            if (listeners.indexOfKey(type) >= 0) {
+                            if (type == AlertType.SESSION_STATS.getSwig()) {
                                 alert = castAlert(swigAlert);
+                                lastStats = new SessionStats((SessionStatsAlert) alert);
+                            }
+
+                            if (listeners.indexOfKey(type) >= 0) {
+                                if (alert == null) {
+                                    alert = castAlert(swigAlert);
+                                }
                                 fireAlert(alert, type);
                             }
 
-                            if (listeners.indexOfKey(-1) >= 0) {
+                            if (type != AlertType.SESSION_STATS.getSwig() &&
+                                    listeners.indexOfKey(-1) >= 0) {
                                 if (alert == null) {
                                     alert = castAlert(swigAlert);
                                 }
@@ -960,6 +878,11 @@ public final class Session {
                         deque.clear();
                     }
 
+                    long now = System.currentTimeMillis();
+                    if ((now - lastStatsRequestTime) >= REQUEST_STATS_RESOLUTION_MILLIS) {
+                        lastStatsRequestTime = now;
+                        postSessionStats();
+                    }
                 }
             }
         };
@@ -1010,6 +933,18 @@ public final class Session {
         list.add(new Pair<String, Integer>("dht.transmissionbt.com", 6881));
 
         return list;
+    }
+
+    private static long countDHTNodes(DhtStatsAlert alert) {
+        DHTRoutingBucket[] buckets = alert.getRoutingTable();
+
+        long n = 0;
+
+        for (DHTRoutingBucket b : buckets) {
+            n += b.getNumNodes();
+        }
+
+        return n;
     }
 
     private static Map<Integer, CastAlertFunction> buildCastAlertTable() {
@@ -1084,6 +1019,8 @@ public final class Session {
         CAST_ALERT_METHOD(incoming_connection_alert.class, map);
         CAST_ALERT_METHOD(add_torrent_alert.class, map);
         CAST_ALERT_METHOD(state_update_alert.class, map);
+        CAST_ALERT_METHOD(mmap_cache_alert.class, map);
+        CAST_ALERT_METHOD(session_stats_alert.class, map);
         CAST_ALERT_METHOD(torrent_update_alert.class, map);
         CAST_ALERT_METHOD(rss_item_alert.class, map);
         CAST_ALERT_METHOD(dht_error_alert.class, map);
@@ -1091,8 +1028,15 @@ public final class Session {
         CAST_ALERT_METHOD(dht_mutable_item_alert.class, map);
         CAST_ALERT_METHOD(dht_put_alert.class, map);
         CAST_ALERT_METHOD(i2p_alert.class, map);
+        CAST_ALERT_METHOD(dht_outgoing_get_peers_alert.class, map);
+        CAST_ALERT_METHOD(log_alert.class, map);
+        CAST_ALERT_METHOD(torrent_log_alert.class, map);
+        CAST_ALERT_METHOD(peer_log_alert.class, map);
+        CAST_ALERT_METHOD(lsd_error_alert.class, map);
+        CAST_ALERT_METHOD(dht_stats_alert.class, map);
 
         CAST_ALERT_METHOD(dht_get_peers_reply_alert.class, map);
+        CAST_ALERT_METHOD(set_piece_hashes_alert.class, map);
 
         return Collections.unmodifiableMap(map);
     }
@@ -1109,7 +1053,7 @@ public final class Session {
         }
     }
 
-    private Alert<?> castAlert(alert a) {
+    private static Alert<?> castAlert(alert a) {
         CastAlertFunction function = CAST_TABLE.get(a.type());
 
         Alert<?> r;

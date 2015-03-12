@@ -1,5 +1,6 @@
 package com.frostwire.jlibtorrent.alerts;
 
+import com.frostwire.jlibtorrent.TimePoint;
 import com.frostwire.jlibtorrent.swig.alert;
 
 /**
@@ -20,6 +21,11 @@ public abstract class AbstractAlert<T extends alert> implements Alert<T> {
     }
 
     @Override
+    public TimePoint getTimestamp() {
+        return new TimePoint(alert.timestamp());
+    }
+
+    @Override
     public AlertType getType() {
         return AlertType.fromSwig(alert.type());
     }
@@ -30,8 +36,18 @@ public abstract class AbstractAlert<T extends alert> implements Alert<T> {
     }
 
     @Override
+    public String getMessage() {
+        return alert.message();
+    }
+
+    @Override
     public int getCategory() {
         return alert.category();
+    }
+
+    @Override
+    public boolean isDiscardable() {
+        return alert.discardable();
     }
 
     @Override

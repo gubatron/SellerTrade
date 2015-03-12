@@ -58,7 +58,7 @@ public class LobbyServlet extends STAbstractServlet {
         response.setContentType("text/html");
         response.setStatus(HttpServletResponse.SC_OK);
 
-        final List<DHTNode> nodes = dhtService.getNodes();
+        final List<DHTNode> nodes = null;// dhtService.getNodes();
         if (nodes != null && !nodes.isEmpty()) {
             //Collections.shuffle(nodes);
             StringBuffer buffer = new StringBuffer();

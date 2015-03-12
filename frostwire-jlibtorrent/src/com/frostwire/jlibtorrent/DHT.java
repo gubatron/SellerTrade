@@ -5,6 +5,7 @@ import com.frostwire.jlibtorrent.alerts.DhtGetPeersReplyAlert;
 import com.frostwire.jlibtorrent.alerts.DhtImmutableItemAlert;
 import com.frostwire.jlibtorrent.swig.char_vector;
 import com.frostwire.jlibtorrent.swig.dht_item;
+import com.frostwire.jlibtorrent.swig.settings_pack;
 import com.frostwire.jlibtorrent.swig.sha1_hash;
 
 import java.util.ArrayList;
@@ -32,32 +33,19 @@ public final class DHT {
     }
 
     public void start() {
-        s.startDHT();
+        toggleDHT(true);
     }
 
     public void stop() {
-        s.stopDHT();
+        toggleDHT(false);
     }
 
     public boolean isRunning() {
         return s.isDHTRunning();
     }
 
-    public void waitNodes(int nodes) {
-        boolean ready = false;
-        while (!ready) {
-            try {
-                Thread.sleep(1000);
-            } catch (InterruptedException e) {
-                // ignore
-            }
-
-            ready = s.getStatus().getDHTNodes() > nodes;
-        }
-    }
-
-    public int nodes() {
-        return s.getStatus().getDHTNodes();
+    public long nodes() {
+        return s.getStats().getDHTNodes();
     }
 
     public void get(String sha1) {
@@ -113,7 +101,7 @@ public final class DHT {
 
     public ArrayList<TcpEndpoint> getPeers(String sha1, long timeout, TimeUnit unit) {
         final Sha1Hash target = new Sha1Hash(sha1);
-        final Object[] result = { new ArrayList<TcpEndpoint>() };
+        final Object[] result = {new ArrayList<TcpEndpoint>()};
         final CountDownLatch signal = new CountDownLatch(1);
 
         AlertListener l = new AlertListener() {
@@ -130,8 +118,6 @@ public final class DHT {
                     if (target.equals(replyAlert.getInfoHash())) {
                         result[0] = replyAlert.getPeers();
                         signal.countDown();
-                    } else {
-                        System.out.println("DHT.getPeers().alert() [non hash match]-> " + replyAlert);
                     }
                 }
             }
@@ -158,6 +144,12 @@ public final class DHT {
 
     public void announce(String sha1) {
         s.dhtAnnounce(new Sha1Hash(sha1));
+    }
+
+    private void toggleDHT(boolean on) {
+        SettingsPack pack = new SettingsPack();
+        pack.setBoolean(settings_pack.bool_types.enable_dht.swigValue(), on);
+        s.applySettings(pack);
     }
 
     /**

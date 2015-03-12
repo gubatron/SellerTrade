@@ -60,7 +60,8 @@ public final class TorrentHandle {
      * specified piece before calling this function.
      * <p/>
      * When the read operation is completed, it is passed back through an
-     * alert, read_piece_alert. Since this alert is a reponse to an explicit
+     * alert, {@link com.frostwire.jlibtorrent.alerts.ReadPieceAlert}.
+     * Since this alert is a response to an explicit
      * call, it will always be posted, regardless of the alert mask.
      * <p/>
      * Note that if you read multiple pieces, the read operations are not
@@ -112,7 +113,9 @@ public final class TorrentHandle {
 
     /**
      * Returns a pointer to the torrent_info object associated with this
-     * torrent. The torrent_info object may be a copy of the internal object.
+     * torrent. The {@link com.frostwire.jlibtorrent.TorrentInfo} object
+     * may be a copy of the internal object.
+     * <p/>
      * If the torrent doesn't have metadata, the pointer will not be
      * initialized (i.e. a NULL pointer). The torrent may be in a state
      * without metadata only if it was started without a .torrent file, e.g.
@@ -209,12 +212,59 @@ public final class TorrentHandle {
     }
 
     /**
-     * ``resume()`` will reconnect all peers.
+     * Will reconnect all peers.
      * <p/>
      * Torrents that are auto-managed may be automatically resumed again.
      */
     public void resume() {
         th.resume();
+    }
+
+    /**
+     * Explicitly sets the upload mode of the torrent. In upload mode, the
+     * torrent will not request any pieces. If the torrent is auto managed,
+     * it will automatically be taken out of upload mode periodically (see
+     * ``session_settings::optimistic_disk_retry``). Torrents are
+     * automatically put in upload mode whenever they encounter a disk write
+     * error.
+     * <p/>
+     * {@code value} should be true to enter upload mode, and false to leave it.
+     * <p/>
+     * To test if a torrent is in upload mode, call
+     * ``torrent_handle::status()`` and inspect
+     * ``torrent_status::upload_mode``.
+     *
+     * @param value
+     */
+    public void setUploadMode(boolean value) {
+        th.set_upload_mode(value);
+    }
+
+    /**
+     * Enable or disable share mode for this torrent. When in share mode, the
+     * torrent will not necessarily be downloaded, especially not the whole
+     * of it. Only parts that are likely to be distributed to more than 2
+     * other peers are downloaded, and only if the previous prediction was
+     * correct.
+     *
+     * @param value
+     */
+    public void setShareMode(boolean value) {
+        th.set_share_mode(value);
+    }
+
+    /**
+     * Instructs libtorrent to flush all the disk caches for this torrent and
+     * close all file handles. This is done asynchronously and you will be
+     * notified that it's complete through {@link com.frostwire.jlibtorrent.alerts.CacheFlushedAlert}.
+     * <p/>
+     * Note that by the time you get the alert, libtorrent may have cached
+     * more data for the torrent, but you are guaranteed that whatever cached
+     * data libtorrent had by the time you called
+     * {@link #flushCache()} has been written to disk.
+     */
+    public void flushCache() {
+        th.flush_cache();
     }
 
     /**
@@ -529,6 +579,23 @@ public final class TorrentHandle {
         th.set_download_limit(limit);
     }
 
+    /**
+     * Enables or disables *sequential download*.
+     * <p/>
+     * When enabled, the piece picker will pick pieces in sequence
+     * instead of rarest first. In this mode, piece priorities are ignored,
+     * with the exception of priority 7, which are still preferred over the
+     * sequential piece order.
+     * <p/>
+     * Enabling sequential download will affect the piece distribution
+     * negatively in the swarm. It should be used sparingly.
+     *
+     * @param sequential
+     */
+    public void setSequentialDownload(boolean sequential) {
+        th.set_sequential_download(sequential);
+    }
+
     // ``force_recheck`` puts the torrent back in a state where it assumes to
     // have no resume data. All peers will be disconnected and the torrent
     // will stop announcing to the tracker. The torrent will be added to the
@@ -705,6 +772,88 @@ public final class TorrentHandle {
         th.remove_http_seed(url);
     }
 
+    // ``use_interface()`` sets the network interface this torrent will use
+    // when it opens outgoing connections. By default, it uses the same
+    // interface as the session uses to listen on. The parameter must be a
+    // string containing one or more, comma separated, ip-address (either an
+    // IPv4 or IPv6 address). When specifying multiple interfaces, the
+    // torrent will round-robin which interface to use for each outgoing
+    // conneciton. This is useful for clients that are multi-homed.
+//    public void useInterface(String netInterface) {
+//        th.use_interface(netInterface);
+//    }
+
+    // Fills the specified ``std::vector<int>`` with the availability for
+    // each piece in this torrent. libtorrent does not keep track of
+    // availability for seeds, so if the torrent is seeding the availability
+    // for all pieces is reported as 0.
+    //
+    // The piece availability is the number of peers that we are connected
+    // that has advertized having a particular piece. This is the information
+    // that libtorrent uses in order to prefer picking rare pieces.
+    public int[] getPieceAvailability() {
+        int_vector v = new int_vector();
+        th.piece_availability(v);
+        return Vectors.int_vector2ints(v);
+    }
+
+    // These functions are used to set and get the prioritiy of individual
+    // pieces. By default all pieces have priority 1. That means that the
+    // random rarest first algorithm is effectively active for all pieces.
+    // You may however change the priority of individual pieces. There are 8
+    // different priority levels:
+    //
+    //  0. piece is not downloaded at all
+    //  1. normal priority. Download order is dependent on availability
+    //  2. higher than normal priority. Pieces are preferred over pieces with
+    //     the same availability, but not over pieces with lower availability
+    //  3. pieces are as likely to be picked as partial pieces.
+    //  4. pieces are preferred over partial pieces, but not over pieces with
+    //     lower availability
+    //  5. *currently the same as 4*
+    //  6. piece is as likely to be picked as any piece with availability 1
+    //  7. maximum priority, availability is disregarded, the piece is
+    //     preferred over any other piece with lower priority
+    //
+    // The exact definitions of these priorities are implementation details,
+    // and subject to change. The interface guarantees that higher number
+    // means higher priority, and that 0 means do not download.
+    //
+    // ``piece_priority`` sets or gets the priority for an individual piece,
+    // specified by ``index``.
+    //
+    // ``prioritize_pieces`` takes a vector of integers, one integer per
+    // piece in the torrent. All the piece priorities will be updated with
+    // the priorities in the vector.
+    //
+    // ``piece_priorities`` returns a vector with one element for each piece
+    // in the torrent. Each element is the current priority of that piece.
+    public void setPiecePriority(int index, Priority priority) {
+        th.piece_priority(index, priority.getSwig());
+    }
+
+    public Priority getPiecePriority(int index) {
+        return Priority.fromSwig(th.piece_priority(index));
+    }
+
+    public void prioritizePieces(Priority[] priorities) {
+        int[] arr = new int[priorities.length];
+        for (int i = 0; i < arr.length; i++) {
+            arr[i] = priorities[i] != Priority.UNKNOWN ? priorities[i].getSwig() : Priority.IGNORE.getSwig();
+        }
+        th.prioritize_pieces(Vectors.ints2int_vector(arr));
+    }
+
+    public Priority[] getPiecePriorities() {
+        int_vector v = th.piece_priorities();
+        int size = (int) v.size();
+        Priority[] arr = new Priority[size];
+        for (int i = 0; i < size; i++) {
+            arr[i] = Priority.fromSwig(v.get(i));
+        }
+        return arr;
+    }
+
     /**
      * index must be in the range [0, number_of_files).
      * <p/>
@@ -767,6 +916,103 @@ public final class TorrentHandle {
             arr[i] = Priority.fromSwig(v.get(i));
         }
         return arr;
+    }
+
+    /**
+     * This function sets or resets the deadline associated with a specific
+     * piece index (``index``). libtorrent will attempt to download this
+     * entire piece before the deadline expires. This is not necessarily
+     * possible, but pieces with a more recent deadline will always be
+     * prioritized over pieces with a deadline further ahead in time. The
+     * deadline (and flags) of a piece can be changed by calling this
+     * function again.
+     * <p/>
+     * If the piece is already downloaded when this call is made, nothing
+     * happens, unless the alert_when_available flag is set, in which case it
+     * will do the same thing as calling read_piece() for ``index``.
+     *
+     * @param index
+     * @param deadline
+     */
+    public void setPieceDeadline(int index, int deadline) {
+        th.set_piece_deadline(index, deadline);
+    }
+
+    /**
+     * This function sets or resets the deadline associated with a specific
+     * piece index (``index``). libtorrent will attempt to download this
+     * entire piece before the deadline expires. This is not necessarily
+     * possible, but pieces with a more recent deadline will always be
+     * prioritized over pieces with a deadline further ahead in time. The
+     * deadline (and flags) of a piece can be changed by calling this
+     * function again.
+     * <p/>
+     * The ``flags`` parameter can be used to ask libtorrent to send an alert
+     * once the piece has been downloaded, by passing alert_when_available.
+     * When set, the read_piece_alert alert will be delivered, with the piece
+     * data, when it's downloaded.
+     * <p/>
+     * If the piece is already downloaded when this call is made, nothing
+     * happens, unless the alert_when_available flag is set, in which case it
+     * will do the same thing as calling read_piece() for ``index``.
+     *
+     * @param index
+     * @param deadline
+     * @param flags
+     */
+    public void setPieceDeadline(int index, int deadline, DeadlineFlags flags) {
+        th.set_piece_deadline(index, deadline, flags.getSwig());
+    }
+
+    /**
+     * Removes the deadline from the piece. If it
+     * hasn't already been downloaded, it will no longer be considered a
+     * priority.
+     *
+     * @param index
+     */
+    public void resetPieceDeadline(int index) {
+        th.reset_piece_deadline(index);
+    }
+
+    /**
+     * Removes deadlines on all pieces in the torrent.
+     * As if {@link #resetPieceDeadline(int)} was called on all pieces.
+     */
+    public void clearPieceDeadlines() {
+        th.clear_piece_deadlines();
+    }
+
+    /**
+     * This sets the bandwidth priority of this torrent. The priority of a
+     * torrent determines how much bandwidth its peers are assigned when
+     * distributing upload and download rate quotas. A high number gives more
+     * bandwidth. The priority must be within the range [0, 255].
+     * <p/>
+     * The default priority is 0, which is the lowest priority.
+     * <p/>
+     * To query the priority of a torrent, use the
+     * ``torrent_handle::status()`` call.
+     * <p/>
+     * Torrents with higher priority will not nececcarily get as much
+     * bandwidth as they can consume, even if there's is more quota. Other
+     * peers will still be weighed in when bandwidth is being distributed.
+     * With other words, bandwidth is not distributed strictly in order of
+     * priority, but the priority is used as a weight.
+     * <p/>
+     * Peers whose Torrent has a higher priority will take precedence when
+     * distributing unchoke slots. This is a strict prioritization where
+     * every interested peer on a high priority torrent will be unchoked
+     * before any other, lower priority, torrents have any peers unchoked.
+     *
+     * @param priority
+     */
+    public void setPriority(int priority) {
+        if (priority < 0 || 255 < priority) {
+            throw new IllegalArgumentException("The priority must be within the range [0, 255]");
+        }
+
+        th.set_priority(priority);
     }
 
     /**
@@ -837,7 +1083,88 @@ public final class TorrentHandle {
     }
 
     /**
-     * flags to be passed in file_progress().
+     * Flags to pass in to status() to specify which properties of the
+     * torrent to query for. By default all flags are set.
+     */
+    public enum StatusFlags {
+
+        /**
+         * calculates ``distributed_copies``, ``distributed_full_copies`` and
+         * ``distributed_fraction``.
+         */
+        QUERY_DISTRIBUTED_COPIES(status_flags_t.query_distributed_copies.swigValue()),
+
+        /**
+         * includes partial downloaded blocks in ``total_done`` and
+         * ``total_wanted_done``.
+         */
+        QUERY_ACCURATE_DOWNLOAD_COUNTERS(status_flags_t.query_accurate_download_counters.swigValue()),
+
+        /**
+         * includes ``last_seen_complete``.
+         */
+        QUERY_LAST_SEEN_COMPLETE(status_flags_t.query_last_seen_complete.swigValue()),
+
+        /**
+         * includes ``pieces``.
+         */
+        QUERY_PIECES(status_flags_t.query_pieces.swigValue()),
+
+        /**
+         * includes ``verified_pieces`` (only applies to torrents in *seed mode*).
+         */
+        QUERY_VERIFIED_PIECES(status_flags_t.query_verified_pieces.swigValue()),
+
+        /**
+         * includes ``torrent_file``, which is all the static information from the .torrent file.
+         */
+        QUERY_TORRENT_FILE(status_flags_t.query_torrent_file.swigValue()),
+
+        /**
+         * includes ``name``, the name of the torrent. This is either derived
+         * from the .torrent file, or from the ``&dn=`` magnet link argument
+         * or possibly some other source. If the name of the torrent is not
+         * known, this is an empty string.
+         */
+        QUERY_NAME(status_flags_t.query_name.swigValue()),
+
+        /**
+         * includes ``save_path``, the path to the directory the files of the
+         * torrent are saved to.
+         */
+        QUERY_SAVE_PATH(status_flags_t.query_save_path.swigValue());
+
+        private StatusFlags(int swigValue) {
+            this.swigValue = swigValue;
+        }
+
+        private final int swigValue;
+
+        public int getSwig() {
+            return swigValue;
+        }
+    }
+
+    /**
+     * Flags for {@link #setPieceDeadline(int, int, com.frostwire.jlibtorrent.TorrentHandle.DeadlineFlags)}.
+     */
+    public enum DeadlineFlags {
+
+        ALERT_WHEN_AVAILABLE(torrent_handle.deadline_flags.alert_when_available.swigValue());
+
+        private DeadlineFlags(int swigValue) {
+            this.swigValue = swigValue;
+        }
+
+        private final int swigValue;
+
+        public int getSwig() {
+            return swigValue;
+        }
+    }
+
+    /**
+     * Flags to be passed in {@link #getFileProgress(com.frostwire.jlibtorrent.TorrentHandle.FileProgressFlags)}.
      */
     public enum FileProgressFlags {
 

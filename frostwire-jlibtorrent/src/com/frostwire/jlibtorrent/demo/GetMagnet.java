@@ -20,8 +20,10 @@ public final class GetMagnet {
         Downloader d = new Downloader(s);
         DHT dht = new DHT(s);
 
+        dht.getPeers("86d0502ead28e495c9e67665340f72aa72fe304");
+
         System.out.println("Waiting for nodes in DHT");
-        dht.waitNodes(1);
+        Thread.sleep(5000);
         System.out.println("Nodes in DHT: " + dht.nodes());
 
         System.out.println("Fetching the magnet uri, please wait...");

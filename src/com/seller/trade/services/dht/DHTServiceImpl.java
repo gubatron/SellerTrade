@@ -79,7 +79,13 @@ public class DHTServiceImpl implements DHTService {
             }
         });
         //dht.getPeers("86d0502ead28e495c9e67665340f72aa72fe304");
-        dht.waitNodes(1);
+        //dht.waitNodes(1); method no longer here.
+	System.out.println("Waiting for DHT Nodes 5 seconds");
+
+	try {
+	    Thread.sleep(5000);
+	} catch (Throwable e) {
+	}
     }
 
     @Override

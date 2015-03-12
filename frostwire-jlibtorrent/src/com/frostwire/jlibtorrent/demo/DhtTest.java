@@ -11,6 +11,7 @@ import com.frostwire.jlibtorrent.alerts.ExternalIpAlert;
 
 import java.util.ArrayList;
 import java.util.concurrent.CountDownLatch;
+import java.util.concurrent.TimeUnit;
 
 /**
  * @author gubatron
@@ -60,19 +61,20 @@ public final class DhtTest {
 
         System.out.println("Waiting to DHT bootstrap");
 
-        signal.await();
+        signal.await(10, TimeUnit.SECONDS);
 
         System.out.println("Calling dht_get_peers");
 
         dht.getPeers("86d0502ead28e495c9e67665340f72aa72fe304");
 
-        Thread.sleep(4000);
+        Thread.sleep(5000);
 
         dht.announce("47d0502ead28e495c9e67665340f72aa72fe304", 9999, 0);
 
         System.out.println("Waiting 15 seconds");
         Thread.sleep(15000);
 
+        //dht.getPeers("5472d2fe734c16f28912e1e756b57e2470148b93");
         dht.getPeers("47d0502ead28e495c9e67665340f72aa72fe304");
 
         System.out.println("Press ENTER to exit");
