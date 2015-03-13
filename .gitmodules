@@ -1,0 +1,3 @@
+[submodule "frostwire-jlibtorrent"]
+	path = frostwire-jlibtorrent
+	url = https://github.com/frostwire/frostwire-jlibtorrent
