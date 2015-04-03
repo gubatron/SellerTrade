@@ -327,8 +327,10 @@ def killJavaService(jpsPattern):
 def runJavaService(clazz, config, configFilePath):
     print "Starting ",clazz
     lib_path = 'lib'
-    cmd = 'nohup java -Xms64m -Xmx512m -Djava.library.path=. -classpath ' + 'sellertrade.jar:' + getJarsInClassPathNotation(lib_path) + ' '+clazz+' '+configFilePath+' &'
-    #print "\n\n",cmd,"\n"
+    cmd = 'nohup java -Xms64m -Xmx512m -XX:-AllowUserSignalHandlers -XX:ErrorFile=error.dump -Djava.library.path=. -classpath ' + 'sellertrade.jar:' + getJarsInClassPathNotation(lib_path) + ' '+clazz+' '+configFilePath+' &'
+
+    #cmd = 'java -Xms64m -Xmx512m -XX:-AllowUserSignalHandlers -XX:ErrorFile=error.dump -Djava.library.path=. -classpath ' + 'sellertrade.jar:' + getJarsInClassPathNotation(lib_path) + ' '+clazz+' '+configFilePath+' &'
+    print "\n\n",cmd,"\n"
     os.system(cmd)
 
 if __name__ == '__main__':
