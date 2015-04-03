@@ -40,7 +40,8 @@ public class SearchResult {
     }
 
     public String getUrl() {
-        return "http://" + store.address + ":" + store.port + "/product/?id=" + product.id;
+        // not including the port. the web server proxying the request to SellerTrade should know it.
+        return "http://" + store.address + "/product/?id=" + product.id;
     }
 
     public float getPrice() {
