@@ -27,8 +27,8 @@
 package com.seller.trade.models;
 
 public class Store {
-
-    public String address;
+    public String hostname; /** domain name */
+    public String address; /** ip address */
     public int port;
     public String name;
 }

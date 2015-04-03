@@ -41,7 +41,8 @@ public class SearchResult {
 
     public String getUrl() {
         // not including the port. the web server proxying the request to SellerTrade should know it.
-        return "http://" + store.address + "/product/?id=" + product.id;
+        String hostname = (store.hostname != null) ?  store.hostname : store.address;
+        return "http://" + hostname + "/product/?id=" + product.id;
     }
 
     public float getPrice() {

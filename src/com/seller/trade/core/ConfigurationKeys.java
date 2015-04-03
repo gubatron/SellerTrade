@@ -35,6 +35,7 @@ public class ConfigurationKeys {
     public static final String ST_SITE_DESCRIPTION = "st.site_description";
     public static final String ST_SITE_KEYWORDS = "st.site_keywords";
     public static final String ST_SHIPPING_FROM = "st.shipping_from";
+    public static final String ST_HOSTNAME = "st.hostname";
     public static final String ST_SERVER_IP = "st.server_ip";
     public static final String ST_IS_LOBBY_SERVER = "st.is_lobby_server";
     public static final String ST_USE_LAN_MAPPINGS= "st.use_lan_mappings";

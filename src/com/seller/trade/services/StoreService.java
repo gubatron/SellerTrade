@@ -44,6 +44,7 @@ public final class StoreService {
 
     private final Configuration configuration;
     private final DHTService dhtService;
+    private final String serverHostname;
     private final String serverAddress;
     private final int serverPort;
     private final String storeName;
@@ -52,6 +53,7 @@ public final class StoreService {
     public StoreService(Configuration configuration, DHTService dhtService) {
         this.configuration = configuration;
         this.dhtService = dhtService;
+        serverHostname = configuration.getString(ConfigurationKeys.ST_HOSTNAME);
         serverAddress = configuration.getString(ConfigurationKeys.ST_SERVER_IP);
         serverPort = configuration.getInt(ConfigurationKeys.ST_SERVER_PORT);
         storeName = configuration.getString(ConfigurationKeys.ST_SITE_NAME);
@@ -124,6 +126,7 @@ public final class StoreService {
         List<SearchResult> results = new LinkedList<SearchResult>();
 
         Store store = new Store();
+        store.hostname = serverHostname;
         store.address = serverAddress;
         store.port = serverPort;
         store.name = storeName;
