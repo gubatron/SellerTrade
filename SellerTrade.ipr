@@ -169,5 +169,12 @@
       <SOURCES />
       <jarDirectory url="file://$PROJECT_DIR$/lib" recursive="false" />
     </library>
+    <library name="sellertrade">
+      <CLASSES>
+        <root url="jar://$PROJECT_DIR$/sellertrade.jar!/" />
+      </CLASSES>
+      <JAVADOC />
+      <SOURCES />
+    </library>
   </component>
 </project>
