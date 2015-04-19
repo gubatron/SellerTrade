@@ -42,6 +42,7 @@ public class ConfigurationKeys {
     public static final String ST_SEND_ACCESS_CONTROL_ALLOW_ORIGIN = "st.send_access_control_allow_origin";
     public static final String ST_SEARCH_HOPS = "st.search.hops";
     public static final String ST_PRODUCTS_SET = "st.products_set";
+    public static final String ST_QUERY_NODE_TIMEOUT_MS = "st.query_node_timeout_ms";
 
     protected ConfigurationKeys() {
     }

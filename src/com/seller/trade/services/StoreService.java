@@ -110,7 +110,8 @@ public final class StoreService {
         String url = "http://" + node.getIPAddress() + ":" + node.getHttpPort() + "/search.json/?q=" + q + "&hops=" + hops;
         System.out.println(url);
         try {
-            String s = httpClient.get(url);
+            int timeoutInMs = this.configuration.getInt(ConfigurationKeys.ST_QUERY_NODE_TIMEOUT_MS);
+            String s = httpClient.get(url, timeoutInMs);
             SearchResultList searchResultList = JsonUtils.toObject(s, SearchResultList.class);
             if (searchResultList.results != null) {
                 return searchResultList.results;
